@@ -5,10 +5,14 @@
  :root{
     --color-primary: rgb(11, 180, 87)
 }
-
+nav{
+    background-color: white;
+}
 .nav-content{ 
     display: flex; 
     justify-content: space-around;
+    align-items: center;
+    height: 100%;
     margin-top: 7px;
     height: auto;
 }
@@ -20,9 +24,7 @@
 .title-span{
     color: rgb(11, 180, 87);
     font-family:'Courier New', Courier, monospace;
-    
-}
-ul{
+
 }
 li{
     list-style-type: none; 
@@ -45,5 +47,29 @@ li{
 }
 
 
-display: flex;
-align-items: center;
+/* HERO */
+
+.hero{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.hero-container{
+    margin: 0 100px;
+    display: flex;
+    justify-content:;
+}
+
+.pretext{
+    width: fit-content;
+    padding: 5px 14px; 
+    background-color: var(--color-primary);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.main-text{
+    margin-top: 5px;
+}
