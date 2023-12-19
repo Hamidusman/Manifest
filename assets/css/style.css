@@ -50,15 +50,20 @@ li{
 /* HERO */
 
 .hero{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
     display: flex;
     align-items: center;
+    background-size: cover;
+    background-image: url('assets\img\bg-transparent.png');
 }
 .hero-container{
     margin: 0 100px;
     display: flex;
-    justify-content:;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .pretext{
@@ -71,5 +76,22 @@ li{
 }
 
 .main-text{
-    margin-top: 5px;
+    margin-top: 10px;
 }
+
+.images{
+    display: flex;
+    flex-direction: column;
+}
+.hero-img{
+    width: 320px;
+    margin: 10px;
+}
+
+.description{
+    width: 65%;
+    font-size: 16;
+}
+
+
+
