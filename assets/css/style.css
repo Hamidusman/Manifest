@@ -1,17 +1,19 @@
 *{ 
     scroll-behavior: smooth; 
+    scr
     font-family: 'inter'; 
 }
 
  :root{
-    --color-primary: rgb(11, 180, 87);
-    --pglow: rgb(38, 217, 118);
-    --color-sec: rgb(12, 79, 109);
-    --sglow: rgb(23, 109, 149);
+    --color-primary: rgb(21, 217, 109);
+    --pglow: rgb(104, 235, 163);
+    --color-sec: rgb(6, 77, 83);
+    --sglow: rgb(13, 103, 111);
 }
-nav{
+.kbg{
+    background-color: var(--sglow);
 }
-.nav-content{  
+.navbar{  
  
     margin-top: 7px;
     height: auto; 
@@ -29,7 +31,7 @@ nav{
 li{
     list-style-type: none; 
     margin: 0 15px;
-    font-size: 22px;
+    font-size: 17px;
 
 }
 
@@ -42,6 +44,9 @@ li{
 .navlink{
     text-decoration: none;
     color: black;
+}
+.navlink:hover{ 
+    color: var(--color-primary)
 }
 
 .join{ 
@@ -65,24 +70,19 @@ li{
 }
 
 
-/* HERO */
-.section-hero {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfIbwMLdco-IxTOQxKKglMT4EutsIxqAFOlgdO1cZS4updhtFmAAesbXWKWE4jMaIfvc&usqp=CAU'); 
-    background-size: cover; 
-    background-position-y: center;
-    background-position: center; 
-}
+/* HERO */ 
 .hero{
     width: 100%;
      height: 100%;
     display: flex;
     align-items: center;
+    background-color: var(--color-sec)
 }
 .hero-container{ 
     justify-content:space-between;
     align-items: center;
     width: 100vw;
-    margin: 0 100px
+    margin: 0 100px;
 }
 
 .pretext{
@@ -164,27 +164,8 @@ li{
 .hero-sign:hover{
     background-color: var(--pglow);
     transition: .6s;
-}
-
-.hero-log{
-    margin-left: 5px;
-    padding: 14px 21px;
-    background-color: var(--color-sec);
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    text-decoration: none;
     color: white
 }
-
-.hero-log:hover{
-    background-color: var(--sglow);
-    transition: .6s;
-}
-
-.hero-sign:hover, .hero-log:hover{
-    color: white
-}
-
 
 .story{
     width: 100%;
@@ -278,15 +259,15 @@ li{
 
 .mainpage{
     width: 100%;
-    height: 100vh;
-    background-color: purple;
+    height: 100vh; 
     display: flex;
+    justify-content: space-around;
 }
 
-.topics{
-    margin-left: 100px; 
+.topics{ 
     height: 100%;
-    width: 30%;
+    width: auto;
+    position: static;
 }
 
 .topic-container{ 
@@ -296,16 +277,133 @@ li{
 
 .topic-title{ 
     font-size: 19;
+    font-weight: 600;
 }
 
 .count-container{
     width: 35px;
     height: 35px;
     background-color: var(--color-sec);
-    border-radius: 10px;
+    border-radius: 5px;
+    color: var(--color-primary);
 }
 
-.search{
-    padding: 10px 50px;
+.posts{
+    width: 550px
+}
+.search{ 
+    padding: 0 47px;
     border-radius: 5px; 
+    background-color: rgb(231, 224, 224);
+
+}
+
+.post-create{
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-sec);
+    font-size: 17;
+    border: 2px solid black;
+}
+.post-create:hover{ 
+    background-color: var(--pglow);  
+    transition: 0.6s;
+    color:var(--color-sec)
+}
+
+.post-text{
+    width: 100%;
+    margin-left: 15px; 
+    margin-top: 5px;
+}
+.post-title{
+    height: 90%;
+    margin-top: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 18;
+
+}
+.post-description{
+    margin: -5px 10px 0px 0px
+}
+.post-container{ 
+    width: 550px;
+   max-height: 150px;
+    background-color: rgb(236, 235, 235);
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.post-img{
+    width: 150px;
+    height: 150px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.post-layer2{
+    display: flex;
+    margin-right: 3px;
+    height: 100%;
+    margin-bottom: 5px;
+    
+}
+.post-topic{
+    width: fit-content;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: rgb(216, 230, 230); 
+    cursor: default;
+}
+.author{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.author:hover{
+    color: black
+}
+
+.post-layer{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.noti-content{
+    width: 290;
+    height: 100;
+    border-radius: 15px;
+    background-color: var(--color-primary);
+    border: 3px solid black;
+    margin-top: 10px;
+}
+
+.noti-text{
+    
+    margin: 5 10px
+}
+
+
+
+
+
+
+
+
+
+
+
+.top{
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    margin: 25px
 }
