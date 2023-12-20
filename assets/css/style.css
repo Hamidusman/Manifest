@@ -1,11 +1,13 @@
 *{ 
     scroll-behavior: smooth; 
-    font-family: 'inter';
+    font-family: 'inter'; 
 }
 
  :root{
     --color-primary: rgb(11, 180, 87);
+    --pglow: rgb(38, 217, 118);
     --color-sec: rgb(8, 63, 88);
+    --sglow: rgb(23, 109, 149);
 }
 nav{
 }
@@ -159,6 +161,11 @@ li{
     color: white
 }
 
+.hero-sign:hover{
+    background-color: var(--pglow);
+    transition: .6s;
+}
+
 .hero-log{
     margin-left: 5px;
     padding: 14px 21px;
@@ -169,6 +176,11 @@ li{
     color: white
 }
 
+.hero-log:hover{
+    background-color: var(--sglow);
+    transition: .6s;
+}
+
 .hero-sign:hover, .hero-log:hover{
     color: white
 }
@@ -176,28 +188,88 @@ li{
 
 .story{
     width: 100%;
-    height: 100vh;
+    height: auto;
+    overflow-x: hidden;
 
 }
-
+.story-content{
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.category-title{
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    margin: 25px 15px;
+}
 .story-container{
-    width: 260px;
+    width: 230px;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 40px;
 
 }
 
 .story-img{
-    width: 260px;
+    width: 230px;
     border-radius: 20px;
 }
 
+.story-category{
+    color: rgb(201, 201, 201);
+}
 .story-text{
     margin-top: -35px;
-    width: 80%;
-    height: 120px;
+    width: 90%;
+    height: 150px;
     background-color: whitesmoke;
     border-radius: 10px;
+    font-size: 14;
+}
+
+/* LOGIN-REGISTER */
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-img{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin-bottom: -50px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.form-container{
+    width: 330px;
+    height: 420px;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input{
+    padding: 3px ;
+    margin-top: -10px;
+    background-color:rgb(85, 171, 211);
+    color: white;
+    border-radius: 10px;
+}
+
+.login-but{
+    margin-top: 15px;
+    padding: 4px 12px;
+    border-radius: 10px;
+    background-color: var(--sglow);
+    color: white
 }
