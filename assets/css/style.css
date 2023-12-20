@@ -6,7 +6,7 @@
  :root{
     --color-primary: rgb(11, 180, 87);
     --pglow: rgb(38, 217, 118);
-    --color-sec: rgb(8, 63, 88);
+    --color-sec: rgb(12, 79, 109);
     --sglow: rgb(23, 109, 149);
 }
 nav{
@@ -272,4 +272,40 @@ li{
     border-radius: 10px;
     background-color: var(--sglow);
     color: white
+}
+
+/* MAIN.HTML */
+
+.mainpage{
+    width: 100%;
+    height: 100vh;
+    background-color: purple;
+    display: flex;
+}
+
+.topics{
+    margin-left: 100px; 
+    height: 100%;
+    width: 30%;
+}
+
+.topic-container{ 
+    margin-top: 20px; 
+    width: 220px; 
+}
+
+.topic-title{ 
+    font-size: 19;
+}
+
+.count-container{
+    width: 35px;
+    height: 35px;
+    background-color: var(--color-sec);
+    border-radius: 10px;
+}
+
+.search{
+    padding: 10px 50px;
+    border-radius: 5px; 
 }
