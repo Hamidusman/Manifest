@@ -2,20 +2,22 @@
     scroll-behavior: smooth; 
     scr
     font-family: 'inter'; 
+    color: var(--black-shade)
 }
 
  :root{
-    --color-primary: rgb(21, 217, 109);
+    --color-primary: #fafafa;
     --pglow: rgb(104, 235, 163);
-    --color-sec: rgb(6, 77, 83);
+    --color-sec: #babfbd;
     --sglow: rgb(13, 103, 111);
+    --black-shade: rgb(31, 29, 29)
 }
 .kbg{
     background-color: var(--sglow);
 }
 .navbar{  
- 
-    margin-top: 7px;
+    background-color: var(--color-sec);
+  
     height: auto; 
 }
 .lining{
@@ -23,8 +25,7 @@
     width: 100%;
     background-color: black;
 }
-.title-span{
-    color: rgb(11, 180, 87);
+.title-span{ 
     font-family:'Courier New', Courier, monospace;
 
 }
@@ -44,9 +45,11 @@ li{
 .navlink{
     text-decoration: none;
     color: black;
+    font-weight: 500;
 }
 .navlink:hover{ 
-    color: var(--color-primary)
+    color: var(--color-primary);
+    transition: .4s;
 }
 
 .join{ 
@@ -76,7 +79,7 @@ li{
      height: 100%;
     display: flex;
     align-items: center;
-    background-color: var(--color-sec)
+    background-color: var(--color-primary)
 }
 .hero-container{ 
     justify-content:space-between;
@@ -154,7 +157,7 @@ li{
 
 .hero-sign{
     padding: 14px 21px;
-    background-color: var(--color-primary);
+    background-color: var(--black-shade);
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     text-decoration: none;
@@ -162,9 +165,9 @@ li{
 }
 
 .hero-sign:hover{
-    background-color: var(--pglow);
+    background-color: var(--color-sec);
     transition: .6s;
-    color: white
+    color: var(--black-shade)
 }
 
 .story{
@@ -242,8 +245,8 @@ li{
 .form-input{
     padding: 3px ;
     margin-top: -10px;
-    background-color:rgb(85, 171, 211);
-    color: white;
+    background-color:var(--color-primary);
+    color: o;
     border-radius: 10px;
 }
 
@@ -251,8 +254,8 @@ li{
     margin-top: 15px;
     padding: 4px 12px;
     border-radius: 10px;
-    background-color: var(--sglow);
-    color: white
+    background-color: var(--color-sec);
+    color: var(--black-shade)
 }
 
 /* MAIN.HTML */
@@ -262,6 +265,7 @@ li{
     height: 100vh; 
     display: flex;
     justify-content: space-around;
+    background-color: var(--color-primary)
 }
 
 .topics{ 
@@ -270,6 +274,11 @@ li{
     position: static;
 }
 
+@media(max-width: 1024px){
+    .topics{
+        display: none;
+    }
+}
 .topic-container{ 
     margin-top: 20px; 
     width: 220px; 
@@ -278,6 +287,7 @@ li{
 .topic-title{ 
     font-size: 19;
     font-weight: 600;
+    color: var(--black-shade)
 }
 
 .count-container{
@@ -295,7 +305,14 @@ li{
     padding: 0 47px;
     border-radius: 5px; 
     background-color: rgb(231, 224, 224);
+    margin-left: 5px;
 
+}
+
+@media(max-width:480px){
+    .span-text{
+        display: none;
+    }
 }
 
 .post-create{
@@ -306,9 +323,10 @@ li{
     color: var(--color-sec);
     font-size: 17;
     border: 2px solid black;
+    margin-right: 5px;
 }
 .post-create:hover{ 
-    background-color: var(--pglow);  
+    background-color: var(--color-sec);  
     transition: 0.6s;
     color:var(--color-sec)
 }
@@ -323,7 +341,7 @@ li{
     margin-top: 10px;
     color: black;
     text-decoration: none;
-    font-size: 18;
+    font-size: 16;
 
 }
 .post-description{
@@ -331,32 +349,40 @@ li{
 }
 .post-container{ 
     width: 550px;
-   max-height: 150px;
-    background-color: rgb(236, 235, 235);
+    height: 160px;
+    background-color: var(--color-sec);
     display: flex;
     border-radius: 5px;
 
 }
 
+@media(max-width: 550px){
+    .post-title{
+        font-size: 14;
+    }
+}
+
+@media(max-width: 600px){
+    .post-container{
+        width: 80%
+    }
+}
 .post-img{
     width: 150px;
-    height: 150px;
+    height: 100%;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
-.post-layer2{
-    display: flex;
+.post-layer2{ 
     margin-right: 3px;
     height: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     
 }
 .post-topic{
     width: fit-content;
-    margin-right: 5px;
-    padding: 5px;
-    border-radius: 15px;
-    background-color: rgb(216, 230, 230); 
+    margin-right: 5px; 
+    border-radius: 15px; 
     cursor: default;
 }
 .author{
@@ -373,6 +399,8 @@ li{
     height: fit-content;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -380,9 +408,10 @@ li{
     width: 290;
     height: 100;
     border-radius: 15px;
-    background-color: var(--color-primary);
+    background-color: var(--color-sec);
     border: 3px solid black;
-    margin-top: 10px;
+    margin-top: 20px;
+    color: black;
 }
 
 .noti-text{
@@ -390,6 +419,9 @@ li{
     margin: 5 10px
 }
 
+.heading{
+    color: var(--black-shade)
+}
 
 
 
@@ -399,11 +431,47 @@ li{
 
 
 
-
+@media(max-width: 1024px){
+    .notifications{
+        display: none;
+    }
+} 
 .top{
     width: 40px;
     height: 40px;
-    background-color: var(--color-primary);
+    background-color: var(--color-sec);
     border-radius: 10px;
     margin: 25px
+
+}
+
+/* PROFILE */
+.profile{
+    height: 100vh;
+}
+
+.bg-img{
+    width: 100%;
+    height: 30%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.user-card{
+    
+    background-color: gray;
+    position: relative;
+    margin-top: -180px;
+    margin-left: 60px;
+}
+
+.username{
+}
+
+.profile-img{
+    background-color: pink;
+    width: 100%;
+    height: 65%;
 }
