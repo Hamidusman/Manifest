@@ -448,27 +448,18 @@ li{
 /* PROFILE */
 .profile{
     width: 100%;
-    display: flex;
-    overflow-y
-}
-
-.bg-img{
-    width: 100%;
-    height: 30%;
-    background-color: red;
-    display: flex;
-    align-items: flex-end;
+    display: flex; 
 }
 
 .user-info{
-    height: 88vh;
-    width: 370;
+    height: 230px;
+    width: 100%;
     background-color: var(--color-primary);
     box-shadow: ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;  
+    display: flex; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 
+    margin: 20px;
 }
 
 .user-name{
@@ -477,10 +468,9 @@ li{
  
 
 .dp{
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    margin-top: 10px;
+    width: 180; 
+    height: 180px;  
+    margin-left: 25px;
     
 }
 
@@ -488,14 +478,14 @@ li{
     color: grey;
 }
 
-.profile-about{
-    margin: 0 5px;
+.profile-about{ 
     text-align: center;
     height: 80px; 
 }
 
 .profile-data{
     margin-top:5px;
+    font-size: 19;
 }
 
 .edit-icon{
@@ -503,3 +493,8 @@ li{
     margin-left: 85%;
     margin-top: 10px;
 }
+
+.user-detail{
+    margin-left: 50px;
+}
+
