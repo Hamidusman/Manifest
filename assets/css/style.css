@@ -449,17 +449,18 @@ li{
 .profile{
     width: 100%;
     display: flex; 
+    flex-direction: column;
 }
 
 .user-info{
-    height: 230px;
+    height: 200px;
     width: 100%;
     background-color: var(--color-primary);
     box-shadow: ;
     display: flex; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  
-    margin: 20px;
+    margin-top:20px;
 }
 
 .user-name{
@@ -480,11 +481,11 @@ li{
 
 .profile-about{ 
     text-align: center;
-    height: 80px; 
+    height: 50px; 
 }
 
-.profile-data{
-    margin-top:5px;
+.count-info{
+    margin-top:30px;
     font-size: 19;
 }
 
@@ -498,3 +499,24 @@ li{
     margin-left: 50px;
 }
 
+.follow-button{
+    padding: 6px 18px;
+    border-radius: 30px;
+    
+}
+
+.follow-button:hover{
+    background-color: var(--color-sec);
+    transition: .6s;
+}
+
+.counts-n-data{
+    width: 100%;
+    
+}
+
+.user-counts{
+    width: 230px;
+    height: 280px; 
+    
+}
