@@ -1,9 +1,10 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/bootstraps/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstraps/bootstrap.min.css' %}">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifest</title>
@@ -44,11 +45,11 @@
             <div class="images">
                 <div class="text-img1 mx-3">
                     <p class="img-text">Bet you knew it would fall apart</p>
-                    <img class="hero-img " src="assets/img/smiley-men-checking-phones.jpg" alt="">
+                    <img class="hero-img " src="{% static 'img/smiley-men-checking-phones.jpg' %}" alt="">
                 </div> 
                 <div class="text-img2 mx-3">
                     <p class="img-text">It's all a part of me</p>
-                    <img class="hero-img " src="assets/img/smiley-men-checking-phones.jpg" alt="">
+                    <img class="hero-img " src="{% static 'img/smiley-men-checking-phones.jpg' %}" alt="">
                 </div> 
         </div>
     </section>
@@ -62,17 +63,7 @@
                 <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
                 
                 <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
-            </div>
-            <div class="story-container">
-                <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
-                
-                <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
             </div> 
-            <div class="story-container">
-                <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
-                
-                <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
-            </div>  
         </div><h3 class="category-title container"><strong>Politics</strong></h3>
         <div class="story-content d-flex">
             
@@ -80,21 +71,11 @@
                 <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
                 
                 <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
-            </div>
-            <div class="story-container">
-                <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
-                
-                <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
             </div> 
-            <div class="story-container">
-                <img src="assets/img/man-blue-shirt-using-laptop-work-typing-keyboard-indoor-portrait-male-hands-computer-cup-coffee-table.jpg" class="story-img" alt="">
-                
-                <div class="story-text"><p class="story-category"><strong>Music</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima</strong></div>
-            </div>  
         </div>
     </section>
     
 </body>
 
-<script src="assets\js\bootstrap.min.js"></script>
+<script src="{% static 'js\bootstrap.min.js' %}"></script>
 </html>
