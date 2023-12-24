@@ -498,12 +498,16 @@ li{
 .follow-button{
     padding: 6px 18px;
     border-radius: 5px;
-    
+    margin-right: 3px;
+    background-color: transparent;
+    border-width: 0px;
+    font-weight: 700;
 }
 
 .follow-button:hover{
     background-color: var(--color-sec);
     transition: .6s;
+     
 }
 
 .counts-n-data{
@@ -518,12 +522,13 @@ li{
     width: 100%;  
     display: flex;
     margin-bottom: 10px;
+    margin-left: 18px;
     
     
 } 
 
 .user-stat{
-    margin-right: 10px;
+    margin-right: 13px;
 }
 .profile-sections{
     width:100%;
