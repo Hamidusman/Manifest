@@ -6,8 +6,8 @@
             <h5 class="heading pt-3"><strong>TOPICS</strong></h5>
 
             <div class="topic-container d-flex justify-content-between align-items-center">
-                <div class="topic-title">Science</div>
-                <div class="count-container d-flex justify-content-center align-items-center"><strong>4</strong></div>
+                <div class="topic-title">Total</div>
+                <div class="count-container d-flex justify-content-center align-items-center"><strong>{{post_count}}</strong></div>
 
             </div>
         </div>
@@ -20,24 +20,25 @@
             </div>
             <div class="post-layer">
     
-                
+                {% for b in blogposts %}
                 <div class="post-container mt-3">
                     <a href="" class="img-link"> 
                      <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
                     </a>
                      <div class="post-text d-flex flex-column"> 
                              <a href='' class="post-title">
-                                <strong>Jujutsu Kaisen Fights Are 80% Jumping (1v1s Be Damned)
+                                <strong>{{b.title}}
                                 </strong>
                             </a> 
                        
                          <div class="post-layer2 justify-content-between align-items-center">
-                             <p><a href="" class="author  ">By @Hamid</a></p>
+                             <p><a href="" class="author  ">By @{{b.author}}</a></p>
                              <p class="tag">Tag: <span class="post-topic">Anime</span></p>
                          </div>
                      </div> 
                 
                  </div>
+                 {% endfor %}
             </div>
         </div>
 

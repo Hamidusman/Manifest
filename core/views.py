@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from .models import Blogpost
 # Create your views here.
 
 User = get_user_model()
@@ -37,4 +38,7 @@ def register(request):
     return render(request, 'register.html')
 
 def main(request):
-    return render(request, 'main.html')
+    blogposts = Blogpost.objects.all()
+    post_count = blogposts.count()
+
+    return render(request, 'main.html', {'blogposts': blogposts, 'post_count': post_count})
