@@ -1,0 +1,54 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstraps/bootstrap.min.css' %}">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest</title>
+</head>
+<body> 
+    <div class="lining" id="head"></div>
+    <nav class=" navbar fixed-top navbar-expand-lg kgb">
+        <div class="lining fixed-top"></div>
+        <div class="container d-flex justify-content-between">
+            <h1 class="title"><strong>Mani<span class="title-span">fest</strong></span></h1>
+            <input type="search" name="search" placeholder="kkk" class="search">
+                
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse color" id="navmenu">
+                 
+                    <ul class="navbar-nav ml-auto nav-list">
+                    
+                        <li class="nav-item active">
+                            <a href="" class="navlink"><i class="fa-solid fa-magnifying-glass"></i>Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="" class="navlink">Main Page</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="" class="navlink">Topics</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="" class="navlink">Notification</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="" class="navlink">Profile</a>
+                        </li>
+                    </ul> 
+                
+            </div>
+            <a href="" class="join">Logout</a>
+    
+        </div> 
+    </nav> 
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+
+<script src="{% static 'js\bootstrap.min.js' %}"></script>
+</html>
