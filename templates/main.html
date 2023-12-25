@@ -4,12 +4,13 @@
     <section class="mainpage ">
         <div class="topics">
             <h5 class="heading pt-3"><strong>TOPICS</strong></h5>
-
+            {%for category, data in category_counts.items %}
             <div class="topic-container d-flex justify-content-between align-items-center">
-                <div class="topic-title">Total</div>
-                <div class="count-container d-flex justify-content-center align-items-center"><strong>{{post_count}}</strong></div>
+                <div class="topic-title">{{data.name}}</div>
+                <div class="count-container d-flex justify-content-center align-items-center"><strong>{{data.count}}</strong></div>
 
             </div>
+            {% endfor %}
         </div>
 
         
@@ -33,7 +34,7 @@
                        
                          <div class="post-layer2 justify-content-between align-items-center">
                              <p><a href="" class="author  ">By @{{b.author}}</a></p>
-                             <p class="tag">Tag: <span class="post-topic">Anime</span></p>
+                             <p class="tag">Tag: <span class="post-topic">{{b.category}}</span></p>
                          </div>
                      </div> 
                 

@@ -39,6 +39,19 @@ def register(request):
 
 def main(request):
     blogposts = Blogpost.objects.all()
-    post_count = blogposts.count()
+    categories = set([bp.category for bp in blogposts if bp.category])
 
-    return render(request, 'main.html', {'blogposts': blogposts, 'post_count': post_count})
+    category_counts = {}
+    for category in categories:
+        category_name = dict(Blogpost.category.field.choices)[category]
+        category_counts[category_name] = {
+            'count': Blogpost.objects.filter(category=category).count(),
+            'name': category_name,
+        }
+
+    context = {
+        'blogposts': blogposts,
+        'category_counts': category_counts,
+    }
+
+    return render(request, 'main.html', {'blogposts': blogposts, 'category_counts': category_counts})
