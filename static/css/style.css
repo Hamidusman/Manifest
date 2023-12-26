@@ -301,11 +301,18 @@ li{
 .posts{
     width: 550px
 }
+
+.nav-search{ 
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.search-icon{ 
+}
 .search{ 
-    padding: 5 23px;
+    padding: 3 23px;
     border-radius: 5px; 
     background-color: rgb(231, 224, 224); 
-    margin-right: -20px;
 
 }
 

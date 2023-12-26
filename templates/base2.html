@@ -5,7 +5,7 @@
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'bootstraps/bootstrap.min.css' %}">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifest</title>
 </head>
@@ -15,6 +15,11 @@
         <div class="lining fixed-top"></div>
         <div class="container d-flex justify-content-between">
             <h1 class="title"><strong>Mani<span class="title-span">fest</strong></span></h1>
+            <form method="get" action="{% url 'main' %}" class="nav-search">
+                
+                <img src="{% static 'img\s1.png' %}"  class="search-icon" alt="">
+                <input type="search" name="q" value="{{search_query}}" class="search" placeholder="Author, Title, Topic"> 
+            </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse color" id="navmenu">
                  

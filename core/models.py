@@ -8,7 +8,7 @@ class Profile(models.Model):
     about = models.CharField(max_length=60)
     dob = models.DateField()
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    phone = models.IntegerField(default=234)
+    phone = models.IntegerField(default= '0123')
 
     def __str__(self):
         return self.user
@@ -19,12 +19,9 @@ category = [
             ('Programming', 'Programming'),
             ('Cyber Security', 'Cyber Security')
             ]
-class Blogpost(models.Model):
-    title = models.CharField(max_length=25)
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
-    description = models.CharField(max_length=100000)
-    category = models.CharField(choices=category, default='Programming', max_length=30)
-    date = models.DateField
 
-    def __str__(self):
-        return self.title
+class Post(models.Model):
+    title = models.CharField(max_length=30)
+    read = models.CharField(max_length=100000)
+    category = models.CharField(choices = category, max_length=40)
+    author = models.ForeignKey(User, on_delete = models.CASCADE) 
