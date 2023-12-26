@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
-from .models import Post
+from .models import Post, Comment
 from django.db.models import Q
 # Create your views here.
 
@@ -101,5 +101,6 @@ def main(request):
 
 def story(request, pk): 
     story = Post.objects.get(id=pk)
-    context = {'story': story}
-    return render(request, 'story.html', {'story': story})
+    comments = Comment.objects.filter(post=story)
+    context = {'story': story, 'comments': comments}
+    return render(request, 'story.html', context)

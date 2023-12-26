@@ -25,7 +25,18 @@
             <div class="text-fields container d-flex flex-column mt-3">
                 <h3>{{story.title}}</h3>
                 <p>By @{{story.author.username}}</p>
-                <div class="article-text">{{story.read}}</div> </div>
+                <div class="article-text">{{story.read}}</div> 
+                
+                {% for c in comments %}
+                <article class="comment-container">
+                    <img src="" class="nav-img" alt="">
+                    <div class="comment-body">
+                        <h6>{{c.user.username}} at {{c.created_at}}</h6> ffvfv
+                        
+                         {% endfor %}
+                    </div>
+                </article>
+            </div>
      
 </body>
 

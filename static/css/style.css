@@ -598,3 +598,18 @@ li{
 .article-text{
     font-size: 19;
 }
+
+
+/* COMMENT */
+
+.comment-container{ 
+    display: flex;
+    margin-top: 60px;
+    height:auto;
+    margin-bottom: 30px;
+}
+.comment-body{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
