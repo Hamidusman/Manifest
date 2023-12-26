@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import date
+from datetime import datetime
 # Create your models here.
 class Profile(models.Model):
     firstname = models.CharField(max_length=30)
@@ -24,4 +24,10 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     read = models.CharField(max_length=100000)
     category = models.CharField(choices = category, max_length=40)
-    author = models.ForeignKey(User, on_delete = models.CASCADE) 
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    comment = models.CharField(max_length=600)
+    created_at = models.DateTimeField(auto_now=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
