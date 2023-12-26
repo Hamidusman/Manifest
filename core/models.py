@@ -8,7 +8,7 @@ class Profile(models.Model):
     about = models.CharField(max_length=60)
     dob = models.DateField()
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    phone = models.IntegerField(default=)
+    phone = models.IntegerField(default=234)
 
     def __str__(self):
         return self.user
@@ -24,6 +24,7 @@ class Blogpost(models.Model):
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     description = models.CharField(max_length=100000)
     category = models.CharField(choices=category, default='Programming', max_length=30)
+    date = models.DateField
 
     def __str__(self):
         return self.title
