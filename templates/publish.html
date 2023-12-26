@@ -1,32 +1,33 @@
-
-{% load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstraps/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/bootstraps/bootstrap.min.css">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifest</title>
 </head>
 <body> 
-    <div class="lining" id="head"></div> 
+    <div class="lining" id="head"></div>
+    <form>
         <div class="container mt-3 d-flex justify-content-between align-items-center">
             
             <div class="items-right"> 
-                {{user.username}}
+                kkk
             </div>
             <div class="items-right">
+                <button type="submit" class="publish">Publish</button>
                 <img src="assets/img/smiley-men-checking-phones.jpg" class="nav-img" alt="">
             </div>
         
         </div>
-            <div class="text-fields container d-flex flex-column text-center mt-3">
-                <h3>{{story.title}}</h3>
-                <p>By @{{story.author.username}}</p>
-                <p class="article-text">{{story.description}}</p> </div>
-     
+            <div class="text-fields container d-flex flex-column mt-3">
+                <input type="text" class="story-title" placeholder="Title">
+                <textarea placeholder="Make them all plead, wont be buried alive. Let the demons out and make them bleed" id="" cols="30" rows="10"></textarea>
+            </div>
+    
+    </form> 
 </body>
 
 <script src="assets\js\bootstrap.min.js"></script>

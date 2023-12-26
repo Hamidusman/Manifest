@@ -170,10 +170,10 @@ li{
     color: var(--black-shade)
 }
 
-.story{
-    width: 100%;
+.story{ 
     height: auto;
     overflow-x: hidden;
+    text-align: center;
 
 }
 .story-content{
@@ -586,4 +586,8 @@ li{
     height: 50px;
     font-size:22;
     margin-bottom: 10px; 
+}
+
+.article-text{
+    font-size: 21;
 }

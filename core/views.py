@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -55,3 +55,8 @@ def main(request):
     }
 
     return render(request, 'main.html', {'blogposts': blogposts, 'category_counts': category_counts})
+
+def story(request, pk): 
+    story = Blogpost.objects.get(id=pk)
+    context = {'story': story}
+    return render(request, 'story.html', {'story': story})

@@ -13,7 +13,7 @@
             {% endfor %}
         </div>
 
-        
+
         <div class="posts mt-3">
             <div class="search-create w-100 d-flex justify-content-between mb-3">
                 <input type="search" name="search" placeholder="kkk" class="search">
@@ -27,17 +27,16 @@
                      <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
                     </a>
                      <div class="post-text d-flex flex-column"> 
-                             <a href='' class="post-title">
-                                <strong>{{b.title}}
-                                </strong>
-                            </a> 
+                        <a href="{% url 'story' b.id %}" class="post-title">
+                            <strong>{{b.id}}-- {{ b.title }}</strong>
+                        </a>
                        
                          <div class="post-layer2 justify-content-between align-items-center">
                              <p><a href="" class="author  ">By @{{b.author}}</a></p>
                              <p class="tag">Tag: <span class="post-topic">{{b.category}}</span></p>
                          </div>
                      </div> 
-                
+
                  </div>
                  {% endfor %}
             </div>
