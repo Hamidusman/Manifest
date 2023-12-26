@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post
 from django.db.models import Q
@@ -32,11 +33,28 @@ def register(request):
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
                 messages.success(request, 'Registration successful. You can now login.')
-                return redirect('main')
+                return redirect('login')
         else:
             messages.info('Password dont match')
             return redirect('register')
     return render(request, 'register.html')
+
+def login(request):
+    if request.method =='POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None: 
+            auth_login(request, user)
+            return redirect('main') 
+        else:
+
+            return render(request, 'login.html', {'error': 'Invalid username or password'})
+
+    return render(request, 'login.html')
+
+
 
 def publish(request):
     if request.method == 'POST':

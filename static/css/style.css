@@ -304,7 +304,7 @@ li{
 
 .nav-search{ 
     margin-bottom: 0;
-    margin-left: 10px;
+    margin-left: 35px;
 }
 
 .search-icon{ 
@@ -312,7 +312,7 @@ li{
 .search{ 
     padding: 3 23px;
     border-radius: 5px; 
-    background-color: rgb(231, 224, 224); 
+    background-color: rgb(231, 224, 224);  
 
 }
 
