@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
-from .models import Post, Comment
+from .models import Post, Comment, Notification
 from django.db.models import Q
 # Create your views here.
 
@@ -22,7 +22,7 @@ def register(request):
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
-                message.info(request, 'username already taken')
+                messages.info(request, 'username already taken')
                 return redirect('register')
 
             elif User.objects.filter(email=email).exists():
@@ -81,7 +81,7 @@ def main(request):
         Q(title__icontains=search_query) |
         Q(author__username__icontains=search_query) |
         Q(category__icontains=search_query)
-        )
+    )
     categories = set([p.category for p in posts if p.category])
 
     category_counts = {}
@@ -91,10 +91,13 @@ def main(request):
             'name': category,
         }
 
+    notifications = Notification.objects.filter(user=request.user)
+
     context = {
         'posts': posts,
         'category_counts': category_counts,
         'search_query': search_query,
+        'notifications': notifications 
     }
 
     return render(request, 'main.html', context)

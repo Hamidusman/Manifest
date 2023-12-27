@@ -42,16 +42,16 @@
 
         <div class="notifications">
             <h5 class="heading mt-3"><strong>NOTIFICATIONS</strong></h5>
-
+ 
+            {% for n in notifications %}
             <div class="noti-content d-flex flex-column justify-content-between">
-                <p class="noti-text">X commented on</p>
-                <p class="noti-text">X minutes ago</p>
-            </div> 
+                <p class="noti-text">{{n.message|safe|truncatechars:30}}</p>
+                <p class="noti-text">{{n.comment.comment|safe|truncatechars:25}}</p>
+                <p class="noti-text">{{n.created_at}}</p>
+            </div>
+            {% endfor %}
+        
         </div>
-
-
-
         <a href="#head" class="top fixed-bottom"></a>
     </section>
-
 {% endblock %}

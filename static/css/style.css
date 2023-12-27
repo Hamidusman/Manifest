@@ -413,7 +413,7 @@ li{
 
 .noti-content{
     width: 290;
-    height: 100;
+    height: fit-content%;
     border-radius: 15px;
     background-color: var(--color-sec);
     border: 3px solid black;
