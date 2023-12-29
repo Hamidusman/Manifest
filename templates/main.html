@@ -20,6 +20,7 @@
             <div class="post-layer">
     
                 {% for b in posts %}
+                <a href="{% url 'delete_post' b.id %}">a</a>
                 <div class="post-container mt-3">
                     <a href="{% url 'story' b.id %}" class="img-link"> 
                      <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
