@@ -597,19 +597,44 @@ li{
 
 .article-text{
     font-size: 19;
+    margin-bottom: 25px;
 }
 
 
 /* COMMENT */
 
-.comment-container{ 
-    display: flex;
+.comment-container{  
     margin-top: 60px;
     height:auto;
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
+    display: flex; 
 }
 .comment-body{
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
+
+.comment-box{
+    display: flex;
+}
+
+.comment-img{
+    width: 45px;
+    border-radius: 30px;
+}
+.comment-area{ 
+    width: 350px;
+    max-height: 140px;
+    min-height: 140px;
+
+}
+
+.comment-form{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.comment-button{}

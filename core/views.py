@@ -102,8 +102,14 @@ def main(request):
 
     return render(request, 'main.html', context)
 
+
 def story(request, pk): 
     story = Post.objects.get(id=pk)
     comments = Comment.objects.filter(post=story)
-    context = {'story': story, 'comments': comments}
+
+    if request.method == 'POST' :
+        comment = request.POST['comment']
+        new_comment = Comment.objects.create(user = request.user, comment=comment, post=story)
+        new_comment.save()
+    context = {'story': story, 'comments': comments, }
     return render(request, 'story.html', context)

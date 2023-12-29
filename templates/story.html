@@ -26,17 +26,30 @@
                 <h3>{{story.title}}</h3>
                 <p>By @{{story.author.username}}</p>
                 <div class="article-text">{{story.read}}</div> 
-                
-                {% for c in comments %}
-                <article class="comment-container">
-                    <img src="" class="nav-img" alt="">
-                    <div class="comment-body">
-                        <h6>{{c.user.username}} at {{c.created_at}}</h6> ffvfv
-                        
-                         {% endfor %}
+                <div class="heading">Leave A Comment!</div>
+
+                <form method="POST" class="comment-box">
+                    {% csrf_token %}
+                    <img src="" alt="" class="nav-img">
+                    <div class="comment-form">
+                        <textarea class="comment-area" name="comment"   id="" ></textarea>
+                        <button type="submit" class="comment button">Submit</button>
                     </div>
-                </article>
+                </form>
+
+                 
+                
             </div>
+            {% for c in comments %}  
+                <div class="comment-container container">
+                    <img src="" class="comment-img" alt="">
+                    <div class="comment-body">
+                        <h6>{{c.user.username}} at {{c.created_at}}</h6>{{c.comment}}
+
+                    </div>
+                </div>
+            
+            {% endfor %}
      
 </body>
 
