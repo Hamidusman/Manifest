@@ -15,7 +15,7 @@
 
         <div class="posts mt-3">
             <div class="search-create w-100 d-flex justify-content-between mb-3">
-                <a href="" class="post-create"><strong><span class="span-icon">+</span><span class="span-text">Create Blogpost<i class="fa-solid fa-magnifying-glass"></i></span></strong></a>
+                <a href="{% url 'create_post' %}" class="post-create"><strong><span class="span-icon">+</span><span class="span-text">Create Blogpost<i class="fa-solid fa-magnifying-glass"></i></span></strong></a>
             </div>
             <div class="post-layer">
     
@@ -24,6 +24,7 @@
                     <a href="{% url 'story' b.id %}" class="img-link"> 
                      <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
                     </a>
+                    <a href="{% url 'update_post' b.id %}">kkk</a>
                      <div class="post-text d-flex flex-column"> 
                         <a href="{% url 'story' b.id %}" class="post-title">
                             <strong>{{ b.title }}</strong>
@@ -44,11 +45,11 @@
             <h5 class="heading mt-3"><strong>NOTIFICATIONS</strong></h5>
  
             {% for n in notifications %}
-            <div class="noti-content d-flex flex-column justify-content-between">
+            <a href="{% url 'story' n.id %}"  class="noti-content d-flex flex-column justify-content-between">
                 <p class="noti-text">{{n.message|safe|truncatechars:30}}</p>
                 <p class="noti-text">{{n.comment.comment|safe|truncatechars:25}}</p>
                 <p class="noti-text">{{n.created_at}}</p>
-            </div>
+            </a>
             {% endfor %}
         
         </div>

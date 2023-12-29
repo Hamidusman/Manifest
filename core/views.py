@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Notification
 from django.db.models import Q
+from .forms import PostForm
 # Create your views here.
 
 User = get_user_model()
@@ -56,7 +57,7 @@ def login(request):
 
 
 
-def publish(request):
+def create_post(request):
     if request.method == 'POST':
         title = request.POST['title']
         category = request.POST['category']
@@ -73,8 +74,36 @@ def publish(request):
             return redirect('main')
     return render(request, 'publish.html')
 
+def update_post(request, pk):
+    post = Post.objects.get(id = pk)
+    form = PostForm(instance=post)
+    if request.method == 'POST':
+        post.title = request.objects.POST.get('title')
+        post.category = request.objects.POST.get('category')
+        post.read =  request.objects.POST.get('read')
+        post.save()
+        return redirect('main')
+    return render(request, 'publish.html', {'post': post})
 
- 
+@login_required(login_url='login')
+def updateRoom(request, pk):
+    room = Room.objects.get(id=pk)
+    form = RoomForm(instance=room)
+    topics = Topic.objects.all()
+    if request.user != room.host:
+        return HttpResponse('Your are not allowed here!!')
+
+    if request.method == 'POST':
+        topic_name = request.POST.get('topic')
+        topic, created = Topic.objects.get_or_create(name=topic_name)
+        room.name = request.POST.get('name')
+        room.topic = topic
+        room.description = request.POST.get('description')
+        room.save()
+        return redirect('home')
+
+
+
 def main(request):
     search_query = request.GET.get('q', '')
     posts = Post.objects.filter(

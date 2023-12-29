@@ -44,10 +44,6 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-def save_comment(sender, instance, **kwargs):
-    print('Comment Saved')
-    def __str__(self):
-        return self.comment
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -58,6 +54,10 @@ def save_comment(sender, instance, **kwargs):
                 post = self.post, 
                 message = f'{self.user.username} commented on {self.post.title}'
             )
+def save_comment(sender, instance, **kwargs):
+    print('Comment Saved')
+    def __str__(self):
+        return self.comment
 
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
