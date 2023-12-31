@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
-from .models import Post, Comment, Notification
+from .models import Post, Comment, Notification, Profile
 from django.db.models import Q
 from .forms import PostForm
 # Create your views here.
@@ -84,7 +84,18 @@ def update_post(request, pk):
         post.save()
         return redirect('main')
     return render(request, 'publish.html', {'post': post})
- 
+
+
+def profile(request, pk):
+    profile= Profile.objects.get(id=pk) 
+    context = {'profile': profile }
+    return render(request, 'profile.html', context)
+
+
+
+
+
+
 def delete_post(request, pk):
     post = Post.objects.filter(id=pk)
     post.delete()

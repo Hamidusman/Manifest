@@ -3,19 +3,15 @@ from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
 from datetime import datetime, time
 # Create your models here.
-class Profile(models.Model):
+class Profile(models.Model): 
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
     about = models.CharField(max_length=60)
     dob = models.DateField()
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
-    phone = models.IntegerField(default= '0123')
-
-    def __str__(self):
-        return self.user.username
-
-    def __str__(self):
-        return self.user
+    phone = models.IntegerField()
+ 
+ 
 category = [
             ('Web Development', 'Web Development'),
             ('AI/ML', 'AI/ML'),

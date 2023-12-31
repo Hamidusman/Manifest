@@ -32,7 +32,7 @@
                         </a>
                        
                          <div class="post-layer2 justify-content-between align-items-center">
-                             <p><a href="" class="author  ">By @{{b.author.username}}</a></p>
+                             <p><a href="{% url 'profile' b.id %}" class="author  ">By @{{b.author.username}}</a></p>
                              <p class="tag">Tag: <span class="post-topic">{{b.category}}</span></p>
                          </div>
                      </div> 
