@@ -12,7 +12,12 @@ urlpatterns = [
     path('delete_post/<str:pk>/', views.delete_post, name='delete_post'),
     path('profile/<str:pk>/', views.profile, name='profile'),
     path('login', views.login, name='login'),
-    path('postlist', views.PostList.as_view())
+    path('postlist', views.PostList.as_view()),
+    path('postdetail/<str:pk>', views.PostDetail.as_view()),
+    path('commentlist', views.CommentList.as_view()),
+    path('commentdetail/<str:pk>', views.CommentDetail.as_view()),
+    path('notificationlist', views.NotificationList.as_view()),
+    path('notificationdetail/<str:pk>', views.NotificationDetail.as_view()),
 ]
 
 

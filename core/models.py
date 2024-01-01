@@ -24,7 +24,7 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     read = models.CharField(max_length=100000)
     category = models.CharField(choices = category, max_length=40)
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, related_name= 'posts', on_delete  = models.CASCADE)
     
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ def save_post(sender, instance, **kwargs):
 post_save.connect(save_post, sender=Post)
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, related_name='comments', on_delete = models.CASCADE)
     comment = models.CharField(max_length=600)
     created_at = models.DateTimeField(auto_now=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -56,7 +56,7 @@ def save_comment(sender, instance, **kwargs):
         return self.comment
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='notifications',  on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE) 
     message = models.CharField(max_length=80)
     created_at = models.DateTimeField(auto_now=True)
