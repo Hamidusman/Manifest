@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.parsers import JSONParser
+from django.http import HttpResponse, JsonResponse
+from .serializers import PostSerializer
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Notification, Profile
-from django.db.models import Q
-from .forms import PostForm
+from django.db.models import Q 
+from rest_framework import generics
 # Create your views here.
 
 User = get_user_model()
@@ -39,6 +42,14 @@ def register(request):
             messages.info('Password dont match')
             return redirect('register')
     return render(request, 'register.html')
+
+
+class PostList(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+
 
 def login(request):
     if request.method =='POST':
