@@ -1,0 +1,79 @@
+{% extends 'base2.html '%}
+{% load static %}
+{% block content %}
+    <section class="mainpage ">
+        <div class="topics">
+            <h5 class="heading pt-3"><strong>TOPICS</strong></h5> 
+            <div class="topic-container d-flex justify-content-between align-items-center">
+                <div class="topic-title"></div>
+                <div class="count-container d-flex justify-content-center align-items-center"><strong></strong></div>
+
+            </div>
+      
+        </div> 
+
+        <div class="posts mt-3">
+            <div class="search-create w-100 d-flex justify-content-between mb-3">
+                <a href="" class="post-create"><strong><span class="span-icon">+</span><span class="span-text">Create Blogpost<i class="fa-solid fa-magnifying-glass"></i></span></strong></a>
+            </div>
+            <div class="post-layer" id="post-container">
+      
+                    
+                      
+
+                 </div> 
+            </div>
+        </div>
+
+        <div class="notifications">
+            <h5 class="heading mt-3"><strong>NOTIFICATIONS</strong></h5>
+ 
+      
+            <a href=""  class="noti-content d-flex flex-column justify-content-between">
+                <p class="noti-text"></p>
+                <p class="noti-text"></p>
+                <p class="noti-text"></p>
+            </a>
+        
+        </div>
+        <a href="#head" class="top fixed-bottom"></a>
+    </section type='text/javascript'>
+    
+    <script>
+        build()
+        function build(){
+        var wrapper = document.getElementById('post-container')
+        var url = 'http://127.0.0.1:8000/core/posts'
+        fetch(url)
+        .then((resp) => resp.json()) 
+        .then(function(data){
+            console.log('Data', data)
+
+            var post = data
+            for (var p in post){
+                var item = `
+                
+                <div class="post-container mt-3" >
+                        <a href="" class="img-link"> 
+                            <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
+                            </a> 
+                            <div class="post-text d-flex flex-column"> 
+                                <a href="" class="post-title">
+                                    <strong>${post[p].title}</strong>
+                                </a>
+                            
+                                <div class="post-layer2 justify-content-between align-items-center">
+                                    <p><a href="" class="author  ">By @${post[p].author}</a></p>
+                                    <p class="tag">Tag: <span class="post-topic">${post[p].category}</span></p>
+                                </div>
+                 </div>
+                `
+                wrapper.innerHTML += item
+            }
+        })    
+        }
+
+    </script>
+{% endblock %}
+
+

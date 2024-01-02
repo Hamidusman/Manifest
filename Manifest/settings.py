@@ -26,11 +26,7 @@ SECRET_KEY = "django-insecure-d=3!9p$kvz7t&cejdir*#tdj-^_^8w5d%#3&jwbriuimonp+u@
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 1
-}
+ 
 
 DJOSER = {
     'SERIALIZERS': {
@@ -51,7 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+ 
+    'frontend',
     'core'
 ]
 
@@ -70,7 +67,7 @@ ROOT_URLCONF = "Manifest.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR/ 'templates'],
+        "DIRS": [BASE_DIR/ 'frontend/templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
