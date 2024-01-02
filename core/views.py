@@ -3,11 +3,13 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
-from .serializers import PostSerializer, CommentSerializer, NotificationSerializer
+from .serializers import PostSerializer, CommentSerializer, UserSerializer, NotificationSerializer
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Notification, Profile
 from django.db.models import Q 
+from rest_framework import permissions
+from .permissions import IsOwnerOrReadOnly
 from rest_framework import generics
 # Create your views here.
 
@@ -48,18 +50,46 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+    def create_post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        self.save_notification(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    
+    def save_notification(self, serializer):
+        serializer.save(user = self.request.user)
+
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                      IsOwnerOrReadOnly]
 
 
 class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class =CommentSerializer
 
+    def create_comment(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        self.save_notification(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    
+    def save_comment(self, serializer):
+        serializer.save(user = self.request.user)
+
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                      IsOwnerOrReadOnly]
 
     
 class NotificationList(generics.ListCreateAPIView):
@@ -69,12 +99,22 @@ class NotificationList(generics.ListCreateAPIView):
 class NotificationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                      IsOwnerOrReadOnly]
 
 
+class Users(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
+class User(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    
 
 
+'''
 def login(request):
     if request.method =='POST':
         username = request.POST['username']
@@ -164,7 +204,7 @@ def main(request):
     return render(request, 'main.html', context)
 
 
-def story(request, pk): 
+def story(request, pk):
     story = Post.objects.get(id=pk)
     comments = Comment.objects.filter(post=story)
 
@@ -173,4 +213,4 @@ def story(request, pk):
         new_comment = Comment.objects.create(user = request.user, comment=comment, post=story)
         new_comment.save()
     context = {'story': story, 'comments': comments, }
-    return render(request, 'story.html', context)
+    return render(request, 'story.html', context)'''

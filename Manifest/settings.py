@@ -27,17 +27,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
+}
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'core.serializers.CreateUserSerializer',  
+        'token_create': 'djoser.serializers.TokenCreateSerializer'
+    },
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'djoser',
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
 
     'core'
 ]
