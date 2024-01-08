@@ -45,76 +45,6 @@ def register(request):
             return redirect('register')
     return render(request, 'register.html')
 
-
-class PostList(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-    def create_post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        self.save_notification(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-    
-    def save_notification(self, serializer):
-        serializer.save(user = self.request.user)
-
-class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                      IsOwnerOrReadOnly]
-
-
-class CommentList(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
-    serializer_class =CommentSerializer
-
-    def create_comment(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        self.save_notification(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-    
-    def save_comment(self, serializer):
-        serializer.save(user = self.request.user)
-
-class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                      IsOwnerOrReadOnly]
-
-    
-class NotificationList(generics.ListCreateAPIView):
-    queryset = Notification.objects.all()
-    serializer_class = NotificationSerializer
-
-class NotificationDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Notification.objects.all()
-    serializer_class = NotificationSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                      IsOwnerOrReadOnly]
-
-
-class Users(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class User(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    
-
-
-'''
 def login(request):
     if request.method =='POST':
         username = request.POST['username']
@@ -129,6 +59,34 @@ def login(request):
             return render(request, 'login.html', {'error': 'Invalid username or password'})
 
     return render(request, 'login.html')
+
+
+def main(request):
+    search_query = request.GET.get('q', '')
+    posts = Post.objects.filter(
+        Q(title__icontains=search_query) |
+        Q(author__username__icontains=search_query) |
+        Q(category__icontains=search_query)
+    )
+    categories = set([p.category for p in posts if p.category])
+
+    category_counts = {}
+    for category in categories:
+        category_counts[category] = {
+            'count': posts.filter(category=category).count(),
+            'name': category,
+        }
+
+    notifications = Notification.objects.filter(user=request.user)
+
+    context = {
+        'posts': posts,
+        'category_counts': category_counts,
+        'search_query': search_query,
+        'notifications': notifications 
+    }
+
+    return render(request, 'main.html', context)
 
 
 
@@ -160,48 +118,16 @@ def update_post(request, pk):
         return redirect('main')
     return render(request, 'publish.html', {'post': post})
 
-
-def profile(request, pk):
-    profile= Profile.objects.get(id=pk) 
-    context = {'profile': profile }
-    return render(request, 'profile.html', context)
-
-
-
-
-
-
 def delete_post(request, pk):
     post = Post.objects.filter(id=pk)
     post.delete()
     return redirect('main')
 
-def main(request):
-    search_query = request.GET.get('q', '')
-    posts = Post.objects.filter(
-        Q(title__icontains=search_query) |
-        Q(author__username__icontains=search_query) |
-        Q(category__icontains=search_query)
-    )
-    categories = set([p.category for p in posts if p.category])
 
-    category_counts = {}
-    for category in categories:
-        category_counts[category] = {
-            'count': posts.filter(category=category).count(),
-            'name': category,
-        }
-
-    notifications = Notification.objects.filter(user=request.user)
-
-    context = {
-        'posts': posts,
-        'category_counts': category_counts,
-        'search_query': search_query,
-        'notifications': notifications 
-    }
-
-    return render(request, 'main.html', context)
+def profile(request, pk):
+    profile= Profile.objects.get(id=pk) 
+    context = {'profile': profile }
+    return render(request, 'profile.html', context)
 
 
 def story(request, pk):
