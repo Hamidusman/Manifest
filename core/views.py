@@ -3,13 +3,10 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
-from .serializers import PostSerializer, CommentSerializer, UserSerializer, NotificationSerializer
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Notification, Profile
-from django.db.models import Q 
-from rest_framework import permissions
-from .permissions import IsOwnerOrReadOnly
+from django.db.models import Q  
 from rest_framework import generics
 # Create your views here.
 
@@ -139,4 +136,4 @@ def story(request, pk):
         new_comment = Comment.objects.create(user = request.user, comment=comment, post=story)
         new_comment.save()
     context = {'story': story, 'comments': comments, }
-    return render(request, 'story.html', context)'''
+    return render(request, 'story.html', context)

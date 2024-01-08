@@ -598,14 +598,14 @@ li{
 
 .article-text{
     font-size: 19;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
 }
 
 
 /* COMMENT */
 
 .comment-container{  
-    margin-top: 60px;
+    margin-bottom: 30px; 
     height:auto;
     margin-bottom: 30px; 
     display: flex; 
@@ -618,6 +618,7 @@ li{
 
 .comment-box{
     display: flex;
+    margin-top: 20px
 }
 
 .comment-img{
