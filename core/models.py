@@ -4,12 +4,16 @@ from django.db.models.signals import pre_save, post_save
 from datetime import datetime, time
 # Create your models here.
 class Profile(models.Model): 
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
-    about = models.CharField(max_length=60)
-    dob = models.DateField()
-    phone = models.IntegerField()
+    about = models.CharField(max_length=60, null=True, blank=True)
+    dob = models.DateField(null=True, blank=True)
+    phone = models.IntegerField(null=True, blank=True)
+    picture = models.ImageField(upload_to='profile-pic/')
+
+    def __str__(self):
+        return f'{self.user.username}\'s Profile'
  
  
 category = [
@@ -24,6 +28,7 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     read = models.CharField(max_length=100000)
     category = models.CharField(choices = category, max_length=40)
+    picture = models.ImageField()
     author = models.ForeignKey(User, related_name= 'posts', on_delete  = models.CASCADE)
     
     def __str__(self):
@@ -48,7 +53,7 @@ class Comment(models.Model):
             Notification.objects.create(
                 user = self.post.author,
                 post = self.post, 
-                message = f'{self.user.username} commented on {self.post.title}'
+                message = f'{self.user.username} commented on {self.post.title}: {self.comment}'
             )
 def save_comment(sender, instance, **kwargs):
     print('Comment Saved')
