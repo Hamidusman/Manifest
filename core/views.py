@@ -88,6 +88,7 @@ def main(request):
 
 
 def create_post(request):
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         title = request.POST['title']
         category = request.POST['category']
@@ -102,7 +103,7 @@ def create_post(request):
             post = Post.objects.create(author=author, title=title, category=category, read=read)
             post.save()
             return redirect('main')
-    return render(request, 'publish.html')
+    return render(request, 'publish.html', {'profile':profile})
 
 def update_post(request, pk):
     post = Post.objects.get(id = pk)
@@ -128,12 +129,21 @@ def profile(request, pk):
 
 
 def story(request, pk):
-    story = Post.objects.get(id=pk)
+    story = Post.objects.get(id=pk) 
     comments = Comment.objects.filter(post=story)
+    p = Profile.objects.get(user = request.user)
+    profile = Profile.objects.get(user = story.author)
+
 
     if request.method == 'POST' :
         comment = request.POST['comment']
         new_comment = Comment.objects.create(user = request.user, comment=comment, post=story)
         new_comment.save()
-    context = {'story': story, 'comments': comments, }
+    context = {'story': story, 'comments': comments, 'p':p, 'profile':profile}
     return render(request, 'story.html', context)
+
+def del_comment(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    comment.delete()
+    return redirect('story')
+    

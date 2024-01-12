@@ -22,10 +22,10 @@
                 {% for p in posts %}
                 <div class="post-container mt-3" >
                     <a href="{% url 'story' p.id %}" class="img-link"> 
-                        <img src="assets/img/smiley-men-checking-phones.jpg" class="post-img" alt="">
+                        <img src="{{p.picture.url}}" class="post-img" alt="">
                         </a> 
                         <div class="post-text d-flex flex-column"> 
-                            <a href="" class="post-title">
+                            <a href="{% url 'story' p.id %}" class="post-title">
                                 <strong>{{p.title}}</strong>
                             </a>
                         

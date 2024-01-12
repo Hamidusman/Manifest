@@ -11,6 +11,7 @@
     <title>Manifest</title>
 </head>
 <body> 
+    {{story.author.firstname}}
     <div class="lining" id="head"></div> 
         <div class="container mt-3 d-flex justify-content-between align-items-center">
             
@@ -18,7 +19,8 @@
                 @{{user.username}}
             </div>
             <div class="items-right">
-                <img src="assets/img/smiley-men-checking-phones.jpg" class="nav-img" alt="">
+                
+                <img src="{{profile.picture.url}}" class="nav-img" alt="">
             </div>
         
         </div>
@@ -30,7 +32,7 @@
 
                 <form method="POST" class="comment-box">
                     {% csrf_token %}
-                    <img src="" alt="" class="nav-img">
+                    <img src="{{p.picture.url}}" class="nav-img" alt="">
                     <div class="comment-form">
                         <textarea class="comment-area" name="comment"   id="" ></textarea>
                         <button type="submit" class="comment button">Submit</button>
@@ -42,7 +44,7 @@
             </div>
             {% for c in comments %}  
                 <div class="comment-container container">
-                    <img src="" class="comment-img" alt="">
+                    <img src="{{c.user.profile.picture.url}}" class="comment-img" alt="">
                     <div class="comment-body">
                         <h6>{{c.user.username}} at {{c.created_at}}</h6>{{c.comment}}
 
