@@ -465,7 +465,7 @@ li{
     box-shadow: ;
     display: flex; 
     flex-direction: column; 
-    margin-left: 40px;
+    margin-left: 20
 }
 
 .user-name{
@@ -474,10 +474,17 @@ li{
  
 
 .dp{
-    width: 220; 
-    height: 180px;  
-    margin-left: 10px;
+    width: 220px;  
+    border-radius: 50%;
     
+}
+.profile-post{
+    width: 21px;
+    text-align: center;
+}
+.user-posts{
+    margin-top: 15px;
+    text-align: center;
 }
 
 .location{

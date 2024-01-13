@@ -16,11 +16,11 @@
         <!-- ... other form fields ... -->
         <div class="container mt-3 d-flex justify-content-between align-items-center">
             <div class="items-right"> 
+                <img src="{{profile.picture.url}}" class="nav-img" alt="">
                {{ user.username }}
             </div>
             <div class="items-right">
                 <button type="submit" class="publish">Publish</button>
-                <img src="{{profile.picture.url}}" class="nav-img" alt="">
             </div>
         </div>
         <div class="text-fields container d-flex flex-column mt-3"> 
@@ -33,6 +33,8 @@
                     <option value="Cyber Security">Cyber Security</option>
             </select>
             <textarea name="read" placeholder="Make them all plead, won't be buried alive. Let the demons out and make them bleed" cols="30" rows="5"></textarea>
+            
+            <input type="image" name="picture" id="" placeholder="click me">    
         </div>
     </form>
 

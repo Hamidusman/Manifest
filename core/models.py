@@ -11,6 +11,7 @@ class Profile(models.Model):
     dob = models.DateField(null=True, blank=True)
     phone = models.IntegerField(null=True, blank=True)
     picture = models.ImageField(upload_to='profile-pic/')
+    email = models.EmailField(max_length= 50)
 
     def __str__(self):
         return f'{self.user.username}\'s Profile'
@@ -28,7 +29,7 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     read = models.CharField(max_length=100000)
     category = models.CharField(choices = category, max_length=40)
-    picture = models.ImageField()
+    picture = models.ImageField(upload_to='post-pic/')
     author = models.ForeignKey(User, related_name= 'posts', on_delete  = models.CASCADE)
     
     def __str__(self):

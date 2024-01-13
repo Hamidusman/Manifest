@@ -3,10 +3,18 @@
 {% block content %}
     <div class="profile">
         <div class="user-info">
-            <img src="{{profile.picture.url}}" class="" alt="">
-            
-            
-            
+            <img src="{{profile.picture.url}}" class="dp" alt="">
+
+            <article class="user-posts">
+                <h3 class="heading">Recent Posts</h3>
+                
+                {% for p in posts %}
+                 <p class="profile-post text-align-center">{{p.title}}</p>
+                {% endfor%}
+            </article>
+
+
+
          </div> 
 
          <div class="counts-n-data d-flex">
@@ -16,7 +24,7 @@
                     
                     <div class="user-detail"> 
 
-                        <h5 class="user-name">Genichiro Ashina</h5>
+                        <h5 class="user-name">{{profile.firstname}} {{profile.lastname}}</h5>
                         <h6 class="user-handle">@{{profile.user.username}}</h6>  
                         <p class="profile-about">{{profile.about}}</p>
                         <div class="user-counts">
@@ -33,8 +41,7 @@
                         <button type="button" class="follow-button">Block</button>
                 
                         </div>
-                    </div>
-                    <h5>Bookmark</h5>
+                    </div> 
                 </div>
                 <div class="profile-sections">
                     <button type="button" class="profile-button1">Activities</button>
@@ -46,10 +53,14 @@
                     <h6 class="info-title">Contact Info</h6>
                     <strong>
                         <p class="biodata">Phone: {{profile.phone}}</p>
-                        <p class="biodata">Email: Immortaltechnique@zeemails.com</p>
-                        <p class="biodata">Date Of Birth: 300BC</p>
+                        <p class="biodata">Email: {{profile.email}}</p>
+                        <p class="biodata">Date Of Birth:{{profile.dob}}</p>
+
+                        {% if request == profile.user %}
+                        kowwes
+                        {% endif %}
                 </div>
-            </div>
+            </div>  
          </div>
 
 

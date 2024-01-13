@@ -91,16 +91,16 @@ def create_post(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         title = request.POST['title']
+        picture = request.POST['picture']
         category = request.POST['category']
         read = request.POST['read'] 
-        author = request.user
         if title is None:
             messages.info(request, 'Title required')
             return redirect
         elif read is None:
             messages.info(request, 'Texts are required')
         else:
-            post = Post.objects.create(author=author, title=title, category=category, read=read)
+            post = Post.objects.create(author = request.user, title=title, category=category, read=read, picture=picture, )
             post.save()
             return redirect('main')
     return render(request, 'publish.html', {'profile':profile})
@@ -124,8 +124,10 @@ def delete_post(request, pk):
 
 def profile(request, pk):
     profile= Profile.objects.get(id=pk) 
-    context = {'profile': profile }
+    posts = Post.objects.filter(author = profile.user)
+    context = {'profile': profile, 'posts': posts }
     return render(request, 'profile.html', context)
+
 
 
 def story(request, pk):
