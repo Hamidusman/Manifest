@@ -8,9 +8,12 @@
             <article class="user-posts">
                 <h3 class="heading">Recent Posts</h3>
                 
-                {% for p in posts %}
-                 <p class="profile-post text-align-center">{{p.title}}</p>
-                {% endfor%}
+                <ul>
+                    {% for p in posts %}
+                        <a href="" class=""><li>{{p.title}} </li></a>
+                    {% endfor %}
+          
+                </ul>
             </article>
 
 
@@ -32,11 +35,11 @@
                             <div class="count-data"></div></strong>
                             <strong class="user-stat"><div class="count-info">69 Following </div>
                             <div class="count-data"></div></strong>
-                            <strong class="user-stat"><div class="count-info">27 Posts</div>
+                            <strong class="user-stat"><div class="count-info">{{post_count}} Posts</div>
                             <div class="count-data"></div></strong>
                         </div>
                         <div class="profile-buttons"> 
-                                <button type="button" class="follow-button">Stalk</button> 
+                                <button type="button" class="follow-button">Follow</button> 
                         <button type="button" class="follow-button">Report </button>
                         <button type="button" class="follow-button">Block</button>
                 
@@ -49,14 +52,13 @@
                     <hr>
                 </div>
 
-                <div class="infos">
-                    <h6 class="info-title">Contact Info</h6>
+                <div class="infos"> 
                     <strong>
                         <p class="biodata">Phone: {{profile.phone}}</p>
                         <p class="biodata">Email: {{profile.email}}</p>
                         <p class="biodata">Date Of Birth:{{profile.dob}}</p>
 
-                        {% if request == profile.user %}
+                        {% if request.user == profile.user %}
                         kowwes
                         {% endif %}
                 </div>

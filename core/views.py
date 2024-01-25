@@ -59,6 +59,8 @@ def login(request):
 
 
 def main(request):
+    user = request.user
+    user_profile = Profile.objects.get(user=user)
     search_query = request.GET.get('q', '')
     posts = Post.objects.filter(
         Q(title__icontains=search_query) |
@@ -80,7 +82,9 @@ def main(request):
         'posts': posts,
         'category_counts': category_counts,
         'search_query': search_query,
-        'notifications': notifications 
+        'notifications': notifications,
+        'profile' : user_profile,
+
     }
 
     return render(request, 'main.html', context)
@@ -91,7 +95,7 @@ def create_post(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         title = request.POST['title']
-        picture = request.POST['picture']
+        picture = request.FILES['picture']
         category = request.POST['category']
         read = request.POST['read'] 
         if title is None:
@@ -125,10 +129,14 @@ def delete_post(request, pk):
 def profile(request, pk):
     profile= Profile.objects.get(id=pk) 
     posts = Post.objects.filter(author = profile.user)
-    context = {'profile': profile, 'posts': posts }
+    post_count = posts.count()
+    context = {'profile': profile, 'posts': posts, 'post_count': post_count }
     return render(request, 'profile.html', context)
 
-
+def edit_profile(request, pk):
+    profile = Profile.objects.get(user = request.user)
+    context = {'profile': profile}
+    return render(request, 'edit-profile.html', context)
 
 def story(request, pk):
     story = Post.objects.get(id=pk) 

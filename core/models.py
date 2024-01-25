@@ -29,7 +29,7 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     read = models.CharField(max_length=100000)
     category = models.CharField(choices = category, max_length=40)
-    picture = models.ImageField(upload_to='post-pic/')
+    picture = models.FileField(upload_to='post-pic/')
     author = models.ForeignKey(User, related_name= 'posts', on_delete  = models.CASCADE)
     
     def __str__(self):

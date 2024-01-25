@@ -13,7 +13,8 @@ urlpatterns = [
     path('delete_post/<str:pk>/', views.delete_post, name='delete_post'),
     path('profile/<str:pk>/', views.profile, name='profile'),
     path('login', views.login, name='login'),
-    path('del_comment/<str:pk>', views.del_comment, name='del_comment')
+    path('del_comment/<str:pk>', views.del_comment, name='del_comment'),
+    path('edit_profile/<str:pk>', views.edit_profile)
 ]
 
 

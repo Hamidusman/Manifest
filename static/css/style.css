@@ -27,6 +27,7 @@
 }
 .title-span{ 
     font-family:'Courier New', Courier, monospace;
+    color: var(--sglow)
 
 }
 li{
@@ -413,16 +414,17 @@ li{
 
 .noti-content{
     width: 290;
-    height: fit-content%;
+    height: fit-content;
     border-radius: 15px;
     background-color: var(--color-sec);
     border: 3px solid black;
     margin-top: 20px;
-    color: black;
+    color: black; 
 }
 
-.noti-text{
-    
+.noti-content:hover{ 
+}
+.noti-text{ 
     margin: 5 10px
 }
 
@@ -459,10 +461,11 @@ li{
     margin-top: 20px;
 }
 
+.user-posts{
+    text-decoration-color: red;
+}
 .user-info{
     height: 100%; 
-    
-    box-shadow: ;
     display: flex; 
     flex-direction: column; 
     margin-left: 20
@@ -478,8 +481,9 @@ li{
     border-radius: 50%;
     
 }
-.profile-post{
-    width: 21px;
+
+.profile-post{ 
+    list-style-type: none;
     text-align: center;
 }
 .user-posts{
@@ -512,7 +516,7 @@ li{
     padding: 6px 18px;
     border-radius: 5px;
     margin-right: 3px;
-    background-color: transparent;
+    background-color: var(--sglow);
     border-width: 0px;
     font-weight: 700;
 }
@@ -536,7 +540,6 @@ li{
     width: 100%;  
     display: flex;
     margin-bottom: 10px;
-    margin-left: 18px;
     
     
 } 
