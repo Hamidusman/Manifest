@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
-from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt 
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model
 from .models import Post, Comment, Notification, Profile
-from django.db.models import Q  
-from rest_framework import generics
+from django.db.models import Q   
 # Create your views here.
 
 User = get_user_model()
@@ -23,19 +20,31 @@ def register(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
+        user = get_user_model
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        about = request.POST['about']
+        dob = request.POST['dob']
+        phone = request.POST['phone']
+        #picture = request.POST['picture']
+        email = request.POST['email']
+
         if password1 == password2:
             if User.objects.filter(username=username).exists():
-                messages.info(request, 'username already taken')
+                #messages.info(request, 'username already taken')
                 return redirect('register')
 
             elif User.objects.filter(email=email).exists():
-                messages.info(request, 'Email already in Exists')
+               # messages.info(request, 'Email already in Exists')
                 return redirect('register')
 
             else: 
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
-                messages.success(request, 'Registration successful. You can now login.')
+                profile = Profile.objects.create(user = user, firstname=firstname, lastname=lastname, about=about, dob=dob, phone=phone)
+                profile.save()
+
+             #   messages.success(request, 'Registration successful. You can now login.')
                 return redirect('login')
         else:
             messages.info('Password dont match')
@@ -138,6 +147,18 @@ def edit_profile(request, pk):
     context = {'profile': profile}
     return render(request, 'edit-profile.html', context)
 
+'''def create_profile(request):
+    if request.method == 'POST':
+        firstname = request.POST['firstname']
+        lastname = request..POST['lastname']
+        about = request.POST['about']
+        dob = request.POST['dob']
+        phone = request.method['phone']
+        picture = request.POST['picture']
+        email = request.POST['email']
+
+        profile = profile.'''
+
 def story(request, pk):
     story = Post.objects.get(id=pk) 
     comments = Comment.objects.filter(post=story)
@@ -153,7 +174,7 @@ def story(request, pk):
     return render(request, 'story.html', context)
 
 def del_comment(request, pk):
-    comment = Comment.objects.get(pk=pk)
+    comment = Comment.objects.get(id=pk)
     comment.delete()
-    return redirect('story')
+    return redirect('main') #need to rework on this
     

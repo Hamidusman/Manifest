@@ -38,9 +38,6 @@ DJOSER = {
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
-    'djoser',
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

@@ -49,6 +49,7 @@
                         <h6>{{c.user.username}} at {{c.created_at}}</h6>{{c.comment}}
 
                     </div>
+                    <a href="{% url 'del_comment' c.id %}">d</a>
                 </div>
             
             {% endfor %}
