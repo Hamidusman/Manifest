@@ -1,5 +1,6 @@
 *{ 
     scroll-behavior: smooth; 
+    text-decoration: none;
     scr
     font-family: 'inter'; 
     color: var(--black-shade)
@@ -405,19 +406,20 @@ li{
 }
 
 .noti-content{
-    width: 290;
-    height: fit-content;
+    width: 290; 
     border-radius: 15px;
     background-color: var(--color-sec);
     border: 3px solid black;
     margin-top: 20px;
     color: black; 
+    text-decoration: none
 }
 
 .noti-content:hover{ 
 }
 .noti-text{ 
     margin: 5 10px
+
 }
 
 .heading{

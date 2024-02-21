@@ -26,7 +26,7 @@ def register(request):
         about = request.POST['about']
         dob = request.POST['dob']
         phone = request.POST['phone']
-        #picture = request.POST['picture']
+        picture = request.POST['picture']
         email = request.POST['email']
 
         if password1 == password2:
@@ -41,7 +41,7 @@ def register(request):
             else: 
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
-                profile = Profile.objects.create(user = user, firstname=firstname, lastname=lastname, about=about, dob=dob, phone=phone)
+                profile = Profile.objects.create(user = user, firstname=firstname, lastname=lastname, about=about, dob=dob, phone=phone, picture=picture)
                 profile.save()
 
              #   messages.success(request, 'Registration successful. You can now login.')
