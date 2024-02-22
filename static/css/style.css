@@ -17,11 +17,9 @@
     background-color: var(--sglow);
 }
 .navbar{  
-    background-color: #A555EC
-
-    ;
-  
+    background-color: #A555EC;
     height: auto; 
+    border-bottom: 3px solid grey
 }
 .lining{
     height: 7px;
@@ -40,6 +38,9 @@ li{
 
 }
 
+.project{
+    margin-left: 30px;
+}
 .nav-list{
     
     margin-left: 90px;
@@ -286,9 +287,29 @@ li{
     width: 100%;
     height: auto; 
     display: flex;
-    justify-content: space-around;
-    background-color: var(--color-primary)
+    justify-content: space-between;
+    background-color: var(--color-primary);
+    margin-top: 55px
 }
+
+.layer1{
+    width: auto;
+    height: 50vh;
+    background-color: grey;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column
+}
+
+.userid{
+    width: 200px;
+    border-radius: 15px;
+    background-color: blue;
+}
+
+
+
+
 
 .topics{ 
     height: 100%;
@@ -332,7 +353,8 @@ li{
 .search-icon{ 
 }
 .search{ 
-    padding: 3 23px;
+    margin-left: 60px;
+    padding: 3 30px;
     border-radius: 5px; 
     background-color: rgb(231, 224, 224);  
 
