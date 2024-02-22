@@ -14,6 +14,6 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('del_comment/<str:pk>', views.del_comment, name='del_comment'),
     path('edit_profile/<str:pk>', views.edit_profile)
-]
+    ]
 
  

@@ -1,68 +1,34 @@
-{%extends 'base.html'%}
+{%extends 'base2.html'%}
 {% load static %}
 {% block content%}
-    <section class="login-container">
-        <form class="form-container container d-flex flex-row justify-content-around" method="POST">
+    <section class="login-container"> 
+        <form class="form-container col-md-4 col-lg-6 justify-content-evenly" method="POST">
+
+                <img src="{% static 'img\12146011_Wavy_Gen-01_Single-07.svg' %}" class="login-image" alt="">
+
             {% csrf_token %}
-            <div class="register-info">
-                
-                <div class="d-flex flex-column ">  
-                    <label for="username">Username</label>
-                    <input name="username" type="text" class="form-input">
-                </div>
-                <div class="d-flex flex-column">  
-                    <label for="email">Email</label>
-                    <input name="email" type="text" class="form-input">
-                </div>
-                <div class="d-flex flex-column">  
-                    <label for="password">Password</label>
-                    <input name="password" type="text" class="form-input">
-                </div>
-                
-                <div class="d-flex flex-column">  
-                    <label for="password">Confirm Password</label>
-                    <input name="password" type="text" class="form-input">
-                </div>
-            </div>
-
-            <div class="profile-info">
+                <div class="form-panel d-flex flex-column justify-content-center align-items-center">
                     
-                <div class="d-flex flex-column">  
-                    <label for="picture">Picture</label>
-                    <input name="picture" type="file" class="form-input">
+                <div class="d-flex flex-column mb-1">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-input">
                 </div>
-                    
-                <div class="d-flex flex-column">  
-                    <label for="firstname">firstname</label>
-                    <input name="firstname" type="text" class="form-input">
+                <div class="d-flex flex-column mb-1">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-input">
+                </div> 
+                <div class="d-flex flex-column mb-1">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-input">
                 </div>
-                <div class="d-flex flex-column">  
-                    <label for="lastname">Lastname</label>
-                    <input name="lastname" type="text" class="form-input">
-                </div>
-                
-                <div class="d-flex flex-column">  
-                    <label for="dob">DOB</label>
-                    <input name="dob" type="date" class="form-input">
-                </div>
-                <div class="d-flex flex-column">  
-                    <label for="phone">Phone</label>
-                    <input name="phone" type="number" class="form-input">
-                </div>
-            
-               
-            </div>
-            
-            <div class="d-flex flex-column">
-                <label for="about">About</label>
-                <textarea name="about" id="" cols="30" rows="10"></textarea>
-            </div>
+                <div class="d-flex flex-column mb-1">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password" class="form-input">
+                </div> 
 
-            <div class="d-flex flex-column">
-                
-            <button type="submit" class="login-but">Create</button>
-            <p>Already a user? <a href="{% url 'login' %}">login</a></p>
-            </div>
+                <button type="submit" class="login-but">Login</button>
+                <p class="mt-1">New User? <a href="" class="redirect">Register here!</a></p>
+                </div>
             
         </form>
     </section>
