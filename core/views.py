@@ -20,15 +20,6 @@ def register(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
-        user = get_user_model
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
-        about = request.POST['about']
-        dob = request.POST['dob']
-        phone = request.POST['phone']
-        picture = request.POST['picture']
-        email = request.POST['email']
-
         if password1 == password2:
             if User.objects.filter(username=username).exists():
                 #messages.info(request, 'username already taken')
@@ -41,8 +32,6 @@ def register(request):
             else: 
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
-                profile = Profile.objects.create(user = user, firstname=firstname, lastname=lastname, about=about, dob=dob, phone=phone, picture=picture)
-                profile.save()
 
              #   messages.success(request, 'Registration successful. You can now login.')
                 return redirect('login')
