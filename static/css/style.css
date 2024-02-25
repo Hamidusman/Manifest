@@ -21,9 +21,9 @@ a{
 .navi-link{
     text-decoration: none
 }
-.project{
+.project, .hamid{
     color: var(--color-primary);
-    margin-left: 20px
+    margin: 0px 20px;
 }
 
 
@@ -48,8 +48,20 @@ a{
 
 
 .search{
-    width: 270px;
-    border-radius: 7px; 
+    border-radius: 5px;
+    padding-bottom: 5px;
+    width: -15px
+    
+}
+
+.search-icon{ 
+    width: 25px
+}
+
+.submit{
+    z-index: 1;
+     
+    background-color: transparent; 
 }
 
 
