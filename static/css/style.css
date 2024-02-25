@@ -4,6 +4,9 @@
     color: var(--black-shade)
 }
 
+a{
+    text-decoration: none;
+}
  :root{
     --color-primary: #A555EC;
     --pglow: rgb(104, 235, 163);
@@ -15,7 +18,9 @@
     background-color: var(--sglow);
 }
 
-
+.navi-link{
+    text-decoration: none
+}
 .project{
     color: var(--color-primary);
     margin-left: 20px
@@ -44,9 +49,10 @@
 
 .search{
     width: 270px;
-    border-radius: 7px;
-    margin-left: -220px;
+    border-radius: 7px; 
 }
+
+
 
 @media(max-width: 1024px){
     .join{
@@ -59,6 +65,7 @@
 
 .loging-icon{
     width: 40px;
+    margin-right: 40px
 }
 
 SEARCH
@@ -268,27 +275,32 @@ SEARCH
 /* MAIN.HTML */
 
 .mainpage{
-    width: 100%;
+    
     height: auto; 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: rgb(239, 235, 235);
     margin-top: 55px;
+    margin-left: 120px
 }
 
 .layer1{
     width: 210px;
-    height: auto;
     padding-left: 5px;
     display: flex;
+    height: 93vh;
     flex-direction: column;
     background-color: white;
+
+    box-shadow: 1px 0px 5px #b0abab; 
+    scroll-behavior: auto;
+    position: fixed
 }
 
 .userid{
     width: 200px;
     height: 50px;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: rgb(248, 244, 244); 
     display: flex;
     align-items: center;
@@ -329,7 +341,8 @@ SEARCH
 .nav-container:hover{
     background-color: whitesmoke;
     transition: .6;
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 1px 5px 5px #e6e4e4;
 
 }
 
@@ -419,9 +432,15 @@ SEARCH
     height: 160px;
     background-color: var(--color-sec);
     display: flex;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 15px;
 
+}
+
+.post-container:hover{
+    
+    box-shadow: 2px 5px 5px #b0abab;
+    transition: 0.6s;
 }
 
 @media(max-width: 550px){

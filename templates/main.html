@@ -1,39 +1,56 @@
 {% extends 'base2.html '%}
 {% load static %}
 {% block content %}
-    <section class="mainpage ">
-        <div class="layer1 mt-1">
-            <article class="userid">
-                <img src="{% static 'img/24b8de73911d96b9ef458edc20c2ffc6.png' %}" alt="" class="id-img">
-                <div class="names text-align-center">
-                    <div>hamssw</div>
-                </div>
+<div class="layer1 d-flex flex-column justify-content-between mt-1 ">
+            
 
-            </article>
-
-            <article class="navigation mt-3">
-                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="nav-icon" src="{% static 'img\home.svg' %}" alt="">
-                    <h6 class="nav-title">Home</h6>
-                </div>
-                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="nav-icon" src="{% static 'img\create.svg' %}" alt="">
-                    <h6 class="nav-title">Publish Post</h6>
-                </div>
-                <div class="nav-container d-flex"> <!--<a href="https://iconscout.com/icons/notification" class="text-underline font-size-sm" target="_blank">Notification</a> by <a href="https://iconscout.com/contributors/rengised" class="text-underline font-size-sm" target="_blank">Alex Martynov</a>-->
-                    <img class="nav-icon" src="{% static 'img\noti.svg' %}" alt="">
-                    <h6 class="nav-title">Notifications</h6>
-                </div>
-                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/category" class="text-underline font-size-sm" target="_blank">category</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="nav-icon" src="{% static 'img\categories.svg' %}" alt="">
-                    <h6 class="nav-title">Categories</h6>
-                </div>
-                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="nav-icon" src="{% static 'img\create.svg' %}" alt="">
-                    <h6 class="nav-title">Lorem</h6>
-                </div>
-            </article>
+    <article class="navigation">
+        <div class="userid mb-3">
+            <img src="{% static 'img/24b8de73911d96b9ef458edc20c2ffc6.png' %}" alt="" class="id-img">
+            <div class="names text-align-center">
+                <div>User</div>
+            </div>
         </div>
+
+        <a href="" class="navi-link link-no-underline">
+            <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                <img class="nav-icon" src="{% static 'img\home.svg' %}" alt="">
+                <h6 class="nav-title">Home</h6>
+            </div>
+        </a>
+        
+        <a href="" class="navi-link link-no-underline">
+            <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                <img class="nav-icon" src="{% static 'img\create.svg' %}" alt="">
+                <h6 class="nav-title">Publish Post</h6>
+            </div>
+        </a>
+        
+        <a href="" class="navi-link link-no-underline">
+            <div class="nav-container d-flex"> <!--<a href="https://iconscout.com/icons/notification" class="text-underline font-size-sm" target="_blank">Notification</a> by <a href="https://iconscout.com/contributors/rengised" class="text-underline font-size-sm" target="_blank">Alex Martynov</a>-->
+                <img class="nav-icon" src="{% static 'img\noti.svg' %}" alt="">
+                <h6 class="nav-title">Notifications</h6>
+            </div>
+        </a>
+        
+        <a href="" class="navi-link link-no-underline">
+            <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/category" class="text-underline font-size-sm" target="_blank">category</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                <img class="nav-icon" src="{% static 'img\categories.svg' %}" alt="">
+                <h6 class="nav-title">Categories</h6>
+            </div>
+
+    </article>
+    
+    
+    <a href="" class="navi-link link-no-underline">
+        <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+            <img src="{% static 'img\log-in.svg' %}" alt="" class="nav-icon"> <!-- <a href="https://iconscout.com/icons/log-in" class="text-underline font-size-sm" target="_blank">log in</a> by <a href="https://iconscout.com/contributors/irfansusanto98" class="text-underline font-size-sm" target="_blank">Barudak Lier</a> -->
+            <h6 class="nav-title">Log In</h6>
+        </div>
+    </a>
+</div>
+    <section class="mainpage ">
+        
         
         <!--
         
@@ -88,8 +105,7 @@
                 </a>  
             {% endfor %}
         
-        </div>
-        <a href="#head" class="top fixed-bottom"></a>
+        </div> 
     </section type='text/javascript'>
     
                 
