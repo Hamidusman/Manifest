@@ -1,25 +1,34 @@
 *{ 
     scroll-behavior: smooth; 
     text-decoration: none;
-    scr
-    font-family: 'inter'; 
     color: var(--black-shade)
 }
 
  :root{
-    --color-primary: #ededed;
+    --color-primary: #A555EC;
     --pglow: rgb(104, 235, 163);
-    --color-sec: #babfbd;
+    --color-sec: white;
     --sglow: #29b92e;
     --black-shade: rgb(31, 29, 29)
 }
 .kbg{
     background-color: var(--sglow);
 }
+
+
+.project{
+    color: var(--color-primary);
+    margin-left: 20px
+}
+
+
+
+.loging{
+    margin-right: 20px;
+}
 .navbar{  
-    background-color: #A555EC;
+    background-color: white;
     height: auto; 
-    border-bottom: 3px solid grey
 }
 .lining{
     height: 7px;
@@ -31,41 +40,12 @@
     color: var(--sglow)
 
 }
-li{
-    list-style-type: none; 
-    margin: 0 15px;
-    font-size: 17px;
-
-}
-
-.project{
-    margin-left: 30px;
-}
-.nav-list{
-    
-    margin-left: 90px;
-}
 
 
-.navlink{
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-.navlink:hover{ 
-    color: var(--sglow);
-    transition: .4s;
-}
-
-.join{ 
-    padding: 7px 18px;
-    background-color: black;
-    color: white;
-    text-decoration: none; 
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    text-decoration: none;
+.search{
+    width: 270px;
+    border-radius: 7px;
+    margin-left: -220px;
 }
 
 @media(max-width: 1024px){
@@ -77,7 +57,7 @@ li{
     }
 }
 
-
+SEARCH
 /* HERO */ 
 .hero{
     width: 100%;
@@ -288,25 +268,75 @@ li{
     height: auto; 
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-primary);
-    margin-top: 55px
+    background-color: rgb(239, 235, 235);
+    margin-top: 55px;
 }
 
 .layer1{
-    width: auto;
-    height: 50vh;
-    background-color: grey;
+    width: 210px;
+    height: auto;
     margin-left: 5px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    background-color: white;
 }
 
 .userid{
     width: 200px;
+    height: 50px;
     border-radius: 15px;
-    background-color: blue;
+    background-color: rgb(192, 186, 186);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
 }
 
+
+.id-img{
+    width: 40px;
+    height: 75%;
+    border-radius: 30px;
+    margin: 0 5
+}
+.nav-icon{
+    width: 30px;
+}
+
+.names{
+    margin-bottom: 0
+}
+
+.navigation{
+    
+}
+
+
+.nav-container{
+    transition: .6s;
+    border-radius: 10px;
+    width: 200px; 
+    text-align: center;
+    height: 45px; 
+    align-items: center;
+    margin-bottom: 16;
+    
+}
+
+
+.nav-container:hover{
+    background-color: whitesmoke;
+    transition: .6;
+    transform: scale(1.1);
+
+}
+
+.nav-icon, .nav-title{
+    margin-left: 10px;
+    margin-bottom: 0
+}
+
+.nav-title:hover{
+}
 
 
 
@@ -336,7 +366,7 @@ li{
 .count-container{
     width: 35px;
     height: 35px;
-    background-color: var(--color-sec);
+    background-color: var(-);
     border-radius: 5px;
     color: var(--color-primary);
 }
@@ -352,13 +382,6 @@ li{
 
 .search-icon{ 
 }
-.search{ 
-    margin-left: 60px;
-    padding: 3 30px;
-    border-radius: 5px; 
-    background-color: rgb(231, 224, 224);  
-
-}
 
 @media(max-width:480px){
     .span-text{
@@ -366,15 +389,6 @@ li{
     }
 }
 
-.post-create{
-    padding: 10px 20px;
-    background-color: var(--color-primary);
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--color-sec);
-    font-size: 17;
-    border: 2px solid black; 
-}
 .post-create:hover{ 
     background-color: var(--color-sec);  
     transition: 0.6s;
@@ -402,7 +416,7 @@ li{
     height: 160px;
     background-color: var(--color-sec);
     display: flex;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-bottom: 15px;
 
 }
@@ -456,13 +470,15 @@ li{
 }
 
 .noti-content{
-    width: 290; 
-    border-radius: 15px;
+    width: 290;
+    height: 180;
+    box-shadow: 1px 5px 5px #888;
+    border-radius: 5px;
     background-color: var(--color-sec);
-    border: 3px solid black;
     margin-top: 20px;
     color: black; 
-    text-decoration: none
+    text-decoration: none;
+    margin-right: 15px
 }
 
 .noti-content:hover{ 

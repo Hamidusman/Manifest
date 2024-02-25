@@ -2,13 +2,36 @@
 {% load static %}
 {% block content %}
     <section class="mainpage ">
-        <div class="layer1 mt-3">
+        <div class="layer1 mt-1">
             <article class="userid">
-                <img src="" alt="">
-                <div class="names">
-                    <p>hams <br>sw</p>
+                <img src="{% static 'img/Back User.gif' %}" alt="" class="id-img">
+                <div class="names text-align-center">
+                    <div>hamssw</div>
                 </div>
 
+            </article>
+
+            <article class="navigation mt-3">
+                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                    <img class="nav-icon" src="{% static 'img\home.svg' %}" alt="">
+                    <h6 class="nav-title">Home</h6>
+                </div>
+                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                    <img class="nav-icon" src="{% static 'img\create.svg' %}" alt="">
+                    <h6 class="nav-title">Publish Post</h6>
+                </div>
+                <div class="nav-container d-flex"> <!--<a href="https://iconscout.com/icons/notification" class="text-underline font-size-sm" target="_blank">Notification</a> by <a href="https://iconscout.com/contributors/rengised" class="text-underline font-size-sm" target="_blank">Alex Martynov</a>-->
+                    <img class="nav-icon" src="{% static 'img\noti.svg' %}" alt="">
+                    <h6 class="nav-title">Notifications</h6>
+                </div>
+                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/category" class="text-underline font-size-sm" target="_blank">category</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                    <img class="nav-icon" src="{% static 'img\categories.svg' %}" alt="">
+                    <h6 class="nav-title">Categories</h6>
+                </div>
+                <div class="nav-container d-flex"> <!-- <a href="https://iconscout.com/icons/plus" class="text-underline font-size-sm" target="_blank">plus</a> by <a href="https://iconscout.com/contributors/piqodesign" class="text-underline font-size-sm">Piqo Design</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
+                    <img class="nav-icon" src="{% static 'img\create.svg' %}" alt="">
+                    <h6 class="nav-title">Lorem</h6>
+                </div>
             </article>
         </div>
         
@@ -28,9 +51,6 @@
     -->
 
         <div class="posts mt-3">
-            <div class="search-create w-100 d-flex justify-content-between mb-3">
-                <a href="{% url 'create_post' %}" class="post-create"><strong><span class="span-icon">+</span><span class="span-text">Create Blogpost<i class="fa-solid fa-magnifying-glass"></i></span></strong></a>
-            </div>
             <div class="post-layer" id="post-container">
                 {% for p in posts %}
                 <div class="post-container mt-3" >
@@ -57,10 +77,10 @@
         </div>
 
         <div class="notifications">
-            <h5 class="heading mt-3"><strong>NOTIFICATIONS</strong></h5>
+            <h5 class="heading mt-3"><strong>LATEST NOTIFICATION</strong></h5>
  
       
-            {% for n in notifications %} 
+            {% for n in notifications %}
                 <a href=""  class="noti-content d-flex flex-column justify-content-between">
                     <p class="noti-text">{{n.message}}</p>
                     <p class="noti-text">{{n.}}</p>
