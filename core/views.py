@@ -74,18 +74,23 @@ def main(request):
             'name': category,
         }
 
-    notifications = Notification.objects.filter(user=request.user)
+    
 
     context = {
         'posts': posts,
         'category_counts': category_counts,
         'search_query': search_query,
-        'notifications': notifications,
         'profile' : user_profile,
 
     }
 
     return render(request, 'main.html', context)
+
+
+
+def notification(request):
+    notifications = Notification.objects.filter(user=request.user)
+    return render (request, 'notification.html', {'notifications': notifications})
 
 
 

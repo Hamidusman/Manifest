@@ -7,6 +7,32 @@
 a{
     text-decoration: none;
 }
+
+body::-webkit-scrollbar{
+    width: 0.25rem
+}
+body::-webkit-scrollbar-track{
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--color-primary)
+}
+.navbar{
+    width: 5rem;
+    margin: 0;
+    height: 100%;
+    position: fixed;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-logo{
+    display: flex;
+    flex-direction: ; 
+}
+body::-webkit-scrollbar-track
  :root{
     --color-primary: #A555EC;
     --pglow: rgb(104, 235, 163);
@@ -19,7 +45,57 @@ a{
 }
 
 .navi-link{
-    text-decoration: none
+    text-decoration: none;
+    width: 100%;
+    height: 5rem
+
+}
+
+.full{
+    display: none;
+}
+.navbar:hover{
+    width: 12rem;
+    transition: .6s;
+}
+
+.nav-logo{
+    width: 50px
+}
+
+
+.nav-title{
+    display: none;
+    margin-left: 1rem;
+}
+
+
+.navbar:hover .nav-title, .navbar:hover .full{ 
+    display: block;
+}
+
+.nav-field{
+    margin-top: 20px;
+    width: 100%
+}
+.nav-field:last-child{
+    margin-top: auto
+}
+
+ul{
+    width: auto;
+}
+.navi-bar{
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    width: auto;
+    transition: width 0.2s linear;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgb(104, 235, 163)
 }
 .project, .hamid{
     color: var(--color-primary);
@@ -30,10 +106,6 @@ a{
 
 .loging{
     margin-right: 20px;
-}
-.navbar{  
-    background-color: white;
-    height: auto; 
 }
 .lining{
     height: 7px;
@@ -46,6 +118,9 @@ a{
 
 }
 
+.search-div{
+    margin-bottom: 10px;
+}
 
 .search{
     border-radius: 5px;
@@ -271,8 +346,6 @@ SEARCH
     box-shadow: 5px 5px 5px #888;
 }
 
-
-
 .main-container{
     width: 50%;
     height: 430px;
@@ -287,13 +360,11 @@ SEARCH
 /* MAIN.HTML */
 
 .mainpage{
-    
-    height: auto; 
+    width: 100%;
+    height: fit-content; 
     display: flex;
     justify-content: space-around;
-    background-color: rgb(239, 235, 235);
-    margin-top: 55px;
-    margin-left: 120px
+    background-color: rgb(239, 235, 235); 
 }
 
 .layer1{
@@ -309,15 +380,11 @@ SEARCH
     position: fixed
 }
 
-.userid{
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(248, 244, 244); 
-    display: flex;
-    align-items: center;
+@media(max-width: 600px){
+    .layer1{
+        display: none
+    }
 }
-
 
 .id-img{
     width: 40px;
@@ -327,6 +394,7 @@ SEARCH
 }
 .nav-icon{
     width: 30px;
+    margin-left: 0;
 }
 
 .names{
@@ -334,6 +402,7 @@ SEARCH
 }
 
 .navigation{
+    margin-top: -3
     
 }
 
@@ -502,10 +571,17 @@ SEARCH
     align-items: center;
 
 }
-
+.notifications{
+    width: 490;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .noti-content{
-    width: 290;
-    height: 180;
+    width: 100%;
+    
+
+    height: 70;
     box-shadow: 1px 5px 5px #888;
     border-radius: 5px;
     background-color: var(--color-sec);
@@ -534,11 +610,6 @@ SEARCH
 
 
 
-@media(max-width: 1024px){
-    .notifications{
-        display: none;
-    }
-} 
 .top{
     width: 40px;
     height: 40px;
