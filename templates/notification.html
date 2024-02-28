@@ -2,10 +2,13 @@
 {% load static %}
 {% block content %}
 
-    <section class="mainpage ">
-        <div class="notifications">
+    <section class="mainpage d-flex flex-column">
+        
+        <h4 class="text-align-center heading">Notification</h4>
+        
+        <div class="notifications w-75 d-flex flex-column ">
             
-      
+            
             {% for n in notifications %}
                 <a href=""  class="noti-content d-flex flex-column justify-content-between">
                     <p class="noti-text">{{n.message}}</p>
@@ -14,7 +17,7 @@
                 </a>  
             {% endfor %}
         
-        </div> 
+        </div>
         
 
     </section>
