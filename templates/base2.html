@@ -10,60 +10,44 @@
     <title>Manifest</title>
 </head>
 <body class="d-flex">
-    <nav class=" fixed-top d-flex flex-column align-items-center">
+    <nav class=" fixed-top d-flex align-items-center justify-content-between">
 
-        <div class="">
+        <div class="d-flex align-items-center justify-content-center">
             <img class="nav-logo m-0" src="{% static 'img\Letter-M-MM-Monogram-Logo-Design-vector-Graphics-8008302-1-580x386.jpg' %}" alt="">
-            <h5 class="full">Manifest</h5>
+            <h5 class="full m-0">Manifest</h5>
         </div>
-        <div class="nav-field h list-style-none d-flex flex-column">
+        <div class="nav-field h list-style-none d-flex">
             
             <a href="" class="navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\home.svg' %}" alt="">
-                    <h6 class="nav-title">ssd</h6>
-                </div>
+                <h6 class="nav-title">Profile</h6>
+            </a> 
+            <a href="" class="navi-link link-no-underline">
+                    <h6 class="nav-title">Publish</h6>
+                </a> 
+                <a href="" class="navi-link link-no-underline">
+                        <h6 class="nav-title">Categories</h6>
+                </a> 
+            </a> 
+            <a href="" class="navi-link link-no-underline">
+                    <h6 class="nav-title">Notifications</h6>
+            </a> 
+
+            <a href="" class="navi-link link-no-underline">
+                    <h6 class="nav-title">Log Out</h6>
             </a> 
             
-            <a href="" class=" navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\create.svg' %}" alt="">
-                    <h6 class="nav-title">Create Post</h6>
-                </div>
-            </a> 
-            
-            <a href="" class=" navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\noti.svg' %}" alt="">
-                    <span class="nav-title">Notifications</span>
-                </div>
-            </a> 
-            
-            <a href="" class=" navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\categories.svg' %}" alt="">
-                    <h6 class="nav-title">Categories</h6>
-                </div>
-            </a> 
-            
-            <a href="" class=" navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\home.svg' %}" alt="">
-                    <h6 class="nav-title">ssd</h6>
-                </div>
-            </a> 
-            <a href="" class=" navi-link link-no-underline">
-                <div class=" d-flex"> <!-- <a href="https://iconscout.com/icons/home" class="text-underline font-size-sm" target="_blank">Home</a> by <a href="https://iconscout.com/contributors/boosticon" class="text-underline font-size-sm">Haca Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>-->
-                    <img class="m-0 nav-icon" src="{% static 'img\log-in.svg' %}" alt="">
-                    <h6 class="nav-title">Login</h6>
-                </div>
-            </a> 
         </div>
     </nav>
+    <main class="mainpage">
     {% block content %}
 
 
+
     {% endblock %}
+    </main>
 </body>
-<script src="{% static 'js\bootstrap.min.js' %}"></script>
+<script src="{% static 'js\bootstrap.min.js' %}">
+
+
+</script>
 </html>

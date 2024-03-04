@@ -2,23 +2,11 @@
 {% load static %}
 {% block content %}
 
-    <section class="mainpage ">
+    <section class="d-flex justify-content-around ">
         
         
-        <!--
         
-        <div class="topics">
-            <h5 class="heading pt-3"><strong>TOPICS</strong></h5> 
-            {% for category, data in category_counts.items %}
-            <div class="topic-container d-flex justify-content-between align-items-center">
-                <div class="topic-title">{{data.name}}</div>
-                <div class="count-container d-flex justify-content-center align-items-center"><strong>{{data.count}}</strong></div>
 
-            </div>
-            {%endfor%}
-      
-        </div> 
-    -->
 
         <div class="posts mt-3">
             <div class="post-layer" id="post-container">
@@ -46,18 +34,18 @@
             </div>
         </div>
 
-        <div class="notifications">
-            <h5 class="heading mt-3"><strong>LATEST NOTIFICATION</strong></h5>
- 
-      
-            {% for n in notifications %}
-                <a href=""  class="noti-content d-flex flex-column justify-content-between">
-                    <p class="noti-text">{{n.message}}</p>
-                    <p class="noti-text">{{n.}}</p>
-                    <p class="noti-text">{{n.created_at}}</p>
-                </a>  
-            {% endfor %}
         
+        
+        <div class="topics">
+            <h5 class="heading pt-3"><strong>TOPICS</strong></h5> 
+            {% for category, data in category_counts.items %}
+            <div class="topic-container d-flex justify-content-between align-items-center">
+                <div class="topic-title">{{data.name}}</div>
+                <div class="count-container d-flex justify-content-center align-items-center"><strong>{{data.count}}</strong></div>
+
+            </div>
+            {%endfor%}
+      
         </div> 
     </section type='text/javascript'>
     
