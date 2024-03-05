@@ -766,7 +766,12 @@ body::-webkit-scrollbar-track
     font-size:22;
     margin-bottom: 10px; 
 }
-
+.story-img{
+    height: 420px;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
 .article-text{
     font-size: 19;
     margin-bottom: 45px;

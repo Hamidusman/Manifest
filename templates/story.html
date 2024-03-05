@@ -27,6 +27,7 @@
             <div class="text-fields container d-flex flex-column mt-3">
                 <h3>{{story.title}}</h3>
                 <p>By @{{story.author.username}}</p>
+                <img src="{{story.picture.url}}" class="story-img" alt="">
                 <div class="article-text">{{story.read}}</div> 
                 <div class="heading">Leave A Comment!</div>
 
@@ -49,7 +50,11 @@
                         <h6>{{c.user.username}} at {{c.created_at}}</h6>{{c.comment}}
 
                     </div>
+                    {% if request.user == c.user or request.user == story.author %}
+                    
                     <a href="{% url 'del_comment' c.id %}">d</a>
+                    {% endif %}
+
                 </div>
             
             {% endfor %}

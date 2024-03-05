@@ -20,23 +20,14 @@ def register(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
-        if password1 == password2:
-            if User.objects.filter(username=username).exists():
-                #messages.info(request, 'username already taken')
+        if password1 == password2: 
+            try:
+                user = User.objects.create_user(username=username, email=email, password=password2)
+                user.save() 
+                return redirect('login')  # Assuming a login view
+            except ValueError as e: 
                 return redirect('register')
-
-            elif User.objects.filter(email=email).exists():
-               # messages.info(request, 'Email already in Exists')
-                return redirect('register')
-
-            else: 
-                user = User.objects.create_user(username=username, email=email, password=password1)
-                user.save()
-
-             #   messages.success(request, 'Registration successful. You can now login.')
-                return redirect('login')
-        else:
-            messages.info('Password dont match')
+        else: 
             return redirect('register')
     return render(request, 'register.html')
 
